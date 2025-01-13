@@ -1,35 +1,82 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contact Us">
+  <main>
+    <h1>Contact Us</h1>
 
-    <main>
-        <h1>Contact Us</h1>
+    <form method="POST" action="/api/submit">
+      <p>
+        <em>Fields marked with an <span>*</span> are required.</em>
+      </p>
+      <div class="input">
+        <label for="fullname">Name<span aria-label="required">*</span></label>
+        <input
+          type="text"
+          id="fullname"
+          name="fullname"
+          placeholder="First Last"
+          required
+        />
+      </div>
 
-        <form method="POST" action="/api/submit">
-            <div class="input">
-                <label for="fullname">Your Name</label>
-                <input type="text" id="fullname" name="fullname" required>
-            </div>
+      <div class="input">
+        <label for="email">Email<span aria-label="required">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="example@example.com"
+          required
+        />
+      </div>
 
-            <div class="input">
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+      <div class="input">
+        <label for="phone">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phonenumber"
+          placeholder="000-000-0000"
+          minlength="10"
+        />
+      </div>
 
-            <div class="input">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phonenumber" required>
-            </div>
+      <div class="input">
+        <label for="msg">Message<span aria-label="required">*</span></label>
+        <textarea
+          id="msg"
+          name="message"
+          placeholder="Your message here"
+          required></textarea>
+      </div>
 
-            <div class="input">
-                <label for="msg">Your Message</label>
-                <textarea id="msg" name="message" required></textarea>
-            </div>
-
-            <button type="submit">Submit</button>
-        </form>
-    </main>
-
+      <button type="submit">Submit</button>
+    </form>
+  </main>
 </Layout>
+
+<style>
+  :user-valid {
+    border: 1px solid green;
+  }
+  :user-invalid {
+    border: 1px solid red;
+  }
+
+  form {
+    max-width: 320px;
+  }
+
+  label {
+    display: block;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    margin-block-end: 12px;
+    padding: 5px;
+  }
+</style>
