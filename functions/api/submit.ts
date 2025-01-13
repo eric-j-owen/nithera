@@ -66,7 +66,7 @@ export async function onRequestPost({
       return createResponse("Validation failed", 400, errors);
     }
 
-    return createResponse("Form submitted successfully!", 200);
+    //return createResponse("Form submitted successfully!", 200);
 
     // send email
     const resend = new Resend(env.RESEND_API_KEY);
@@ -83,7 +83,7 @@ export async function onRequestPost({
              <p>Message: ${message}</p>`,
     });
 
-    return Response.json(emailPayload);
+    return createResponse("Form submitted successfully!", 200);
   } catch (err) {
     console.error("Error:", err);
     return new Response("Error parsing JSON content", { status: 400 });
