@@ -19,7 +19,9 @@ export async function onRequestPost({
 
   try {
     const errors: string[] = [];
-    if (!env.RESEND_API_KEY) {
+
+    // check env variables
+    if (!env.RESEND_API_KEY || !env.ALLOWED_ORIGINS) {
       errors.push("Missing env variable");
       return createResponse("Server error", 500, errors);
     }
@@ -40,7 +42,6 @@ export async function onRequestPost({
     const message = input.get("message");
 
     // validation
-
     if (
       !fullName ||
       typeof fullName !== "string" ||
@@ -66,11 +67,9 @@ export async function onRequestPost({
       return createResponse("Validation failed", 400, errors);
     }
 
-    //return createResponse("Form submitted successfully!", 200);
-
     // send email
     const resend = new Resend(env.RESEND_API_KEY);
-    const emailPayload = await resend.emails.send({
+    await resend.emails.send({
       cc: [],
       bcc: [],
       tags: [],
@@ -86,6 +85,6 @@ export async function onRequestPost({
     return createResponse("Form submitted successfully!", 200);
   } catch (err) {
     console.error("Error:", err);
-    return new Response("Error parsing JSON content", { status: 400 });
+    return createResponse("Error parsing JSON content", 400);
   }
 }
