@@ -1,7 +1,16 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
 <Layout title="Contact Us">
+  <main>
     <h1>Contact Us</h1>
+    <ContactForm />
+  </main>
+  <script>
+    import "../scripts/contact.ts";
+  </script>
 </Layout>
+
+<style></style>
