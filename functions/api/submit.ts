@@ -13,14 +13,16 @@ export async function onRequestPost({
 }): Promise<Response> {
   try {
     if (!env.RESEND_API_KEY) {
-      return new Response("Missing env variable", { status: 500 });
+      console.error("Missing env variable");
+      return new Response("Server error", { status: 500 });
     }
 
     //csrf protection
     const allowedOrigins = ["http://localhost:8788"];
     const origin = request.headers.get("Origin");
     if (!origin || !allowedOrigins.includes(origin)) {
-      return new Response("CSRF validation failed", { status: 403 });
+      console.error("CSRF origin validation failed");
+      return new Response("Forbidden", { status: 403 });
     }
 
     // get form data
@@ -31,17 +33,30 @@ export async function onRequestPost({
     const message = input.get("message");
 
     // validation
+    const errors: string[] = [];
+
     if (!fullName || typeof fullName !== "string" || fullName.length < 1) {
-      return new Response("Invalid name", { status: 400 });
+      errors.push("Invalid name");
     }
 
     if (!message || typeof message !== "string" || message.length < 1) {
-      return new Response("Invalid message", { status: 400 });
+      errors.push("invalid message");
     }
 
     if (!email || typeof email !== "string" || email.length < 1) {
-      return new Response("Invalid email", { status: 400 });
+      errors.push("Invalid email");
     }
+
+    if (errors.length > 0) {
+      return Response.json(
+        {
+          message: "Validation failed",
+          errors,
+        },
+        { status: 400 }
+      );
+    }
+    return Response.json("success from submit.ts", { status: 200 });
 
     // send email
     const resend = new Resend(env.RESEND_API_KEY);
