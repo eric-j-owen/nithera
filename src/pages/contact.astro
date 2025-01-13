@@ -1,117 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
 <Layout title="Contact Us">
   <main>
     <h1>Contact Us</h1>
-
-    <form method="POST" action="/api/submit">
-      <p>
-        <em>Fields marked with an <span>*</span> are required.</em>
-      </p>
-      <div class="input">
-        <label for="fullname">Name<span aria-label="required">*</span></label>
-        <input
-          type="text"
-          id="fullname"
-          name="fullname"
-          placeholder="First Last"
-          required
-        />
-      </div>
-
-      <div class="input">
-        <label for="email">Email<span aria-label="required">*</span></label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="example@example.com"
-          required
-        />
-      </div>
-
-      <div class="input">
-        <label for="phone">Phone Number</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phonenumber"
-          placeholder="000-000-0000"
-          minlength="10"
-        />
-      </div>
-
-      <div class="input">
-        <label for="msg">Message<span aria-label="required">*</span></label>
-        <textarea
-          id="msg"
-          name="message"
-          placeholder="Your message here"
-          required></textarea>
-      </div>
-
-      <button type="submit">Submit</button>
-    </form>
-    <p id="responseMsg"></p>
+    <ContactForm />
   </main>
+  <script>
+    import "../scripts/contact.ts";
+  </script>
 </Layout>
 
-<script>
-  const form = document.querySelector("form") as HTMLFormElement;
-  const responseMsg = document.querySelector(
-    "#responseMsg"
-  ) as HTMLParagraphElement;
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    responseMsg.textContent = "";
-
-    const data = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        responseMsg.textContent = result.message;
-        form.reset();
-      } else {
-        responseMsg.textContent = result.message + ": " + result.errors;
-      }
-    } catch (err) {
-      console.error("error submitting form: ", err);
-      responseMsg.textContent = "An error occurred during submission.";
-    }
-  });
-</script>
-
-<style>
-  :user-valid {
-    border: 1px solid green;
-  }
-  :user-invalid {
-    border: 1px solid red;
-  }
-
-  form {
-    max-width: 320px;
-  }
-
-  label {
-    display: block;
-  }
-
-  input,
-  textarea {
-    width: 100%;
-    margin-block-end: 12px;
-    padding: 5px;
-  }
-</style>
+<style></style>

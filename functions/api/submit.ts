@@ -1,8 +1,5 @@
 import { Resend } from "resend";
-
-interface EnvType {
-  RESEND_API_KEY: string;
-}
+import type { EnvType, FormResponseType } from "../../src/types/types";
 
 export async function onRequestPost({
   request,
@@ -11,18 +8,28 @@ export async function onRequestPost({
   request: Request;
   env: EnvType;
 }): Promise<Response> {
+  const createResponse = (
+    message: string,
+    status: number,
+    errors?: string[]
+  ): Response => {
+    const res: FormResponseType = { message, errors };
+    return Response.json(res, { status });
+  };
+
   try {
+    const errors: string[] = [];
     if (!env.RESEND_API_KEY) {
-      console.error("Missing env variable");
-      return new Response("Server error", { status: 500 });
+      errors.push("Missing env variable");
+      return createResponse("Server error", 500, errors);
     }
 
     //csrf protection
-    const allowedOrigins = ["http://localhost:8788"];
+    const allowedOrigins = env.ALLOWED_ORIGINS.split(",");
     const origin = request.headers.get("Origin");
     if (!origin || !allowedOrigins.includes(origin)) {
-      console.error("CSRF origin validation failed");
-      return new Response("Forbidden", { status: 403 });
+      errors.push("CSRF origin validation failed");
+      return createResponse("Forbidden", 403, errors);
     }
 
     // get form data
@@ -33,30 +40,33 @@ export async function onRequestPost({
     const message = input.get("message");
 
     // validation
-    const errors: string[] = [];
 
-    if (!fullName || typeof fullName !== "string" || fullName.length < 1) {
+    if (
+      !fullName ||
+      typeof fullName !== "string" ||
+      fullName.trim().length < 1
+    ) {
       errors.push("Invalid name");
     }
 
-    if (!message || typeof message !== "string" || message.length < 1) {
+    if (!message || typeof message !== "string" || message.trim().length < 1) {
       errors.push("invalid message");
     }
 
-    if (!email || typeof email !== "string" || email.length < 1) {
+    if (
+      !email ||
+      typeof email !== "string" ||
+      !email.includes("@") ||
+      email.trim().length < 1
+    ) {
       errors.push("Invalid email");
     }
 
     if (errors.length > 0) {
-      return Response.json(
-        {
-          message: "Validation failed",
-          errors,
-        },
-        { status: 400 }
-      );
+      return createResponse("Validation failed", 400, errors);
     }
-    return Response.json("success from submit.ts", { status: 200 });
+
+    return createResponse("Form submitted successfully!", 200);
 
     // send email
     const resend = new Resend(env.RESEND_API_KEY);
