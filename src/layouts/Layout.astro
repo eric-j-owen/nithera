@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 
+
 interface Props {
   title: string;
 }
@@ -39,6 +40,7 @@ const { title } = Astro.props;
     height: 100%;
     line-height: 1.5;
     overflow-x: hidden;
+
   }
 
   input,
@@ -63,6 +65,7 @@ const { title } = Astro.props;
     border: none;
   }
 
+
   #root,
   #__next {
     isolation: isolate;
@@ -77,4 +80,5 @@ const { title } = Astro.props;
   ol {
     list-style-type: none;
   }
+
 </style>
