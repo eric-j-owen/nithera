@@ -1,0 +1,122 @@
+<header>
+  <h1><a href="/">NeuroImpact Therapeutics</a></h1>
+  <nav>
+    <button
+      class="topnav-open"
+      aria-expanded="false"
+      aria-label="open menu"
+      aria-controls="topnav-menu"
+    >
+      <img src=`menu-open.svg` alt="" width="28" height="28" />
+    </button>
+    <div id="topnav-menu" class="topnav-menu">
+      <button class="topnav-close" aria-label="close menu">
+        <img src=`menu-close.svg` alt="" width="28" height="28" />
+      </button>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/news">News</a></li>
+        <li><a href="/partners">Partners</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // coupled with css breakpoint
+  const mobileQuery = window.matchMedia("(width < 640px)");
+
+  const mobileNav = document.querySelector(".topnav-menu") as HTMLDivElement;
+  const navLInks = document.querySelector("ul") as HTMLUListElement;
+  const openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
+  const closeBtn = document.querySelector(".topnav-close") as HTMLButtonElement;
+
+  function updateNavState() {
+    if (mobileQuery.matches) {
+      navLInks.inert = true;
+      mobileNav.setAttribute("aria-hidden", "true");
+
+      //fixes issue of menu popping out when changing screen size
+      mobileNav.style.transition = "none";
+      setTimeout(() => {
+        mobileNav.removeAttribute("style");
+      }, 0);
+    } else {
+      openBtn.setAttribute("aria-expanded", "false");
+      mobileNav.removeAttribute("aria-hidden");
+      navLInks.inert = false;
+    }
+  }
+
+  function openMobileMenu() {
+    openBtn.setAttribute("aria-expanded", "true");
+    mobileNav.setAttribute("aria-hidden", "false");
+    navLInks.inert = false;
+    closeBtn.focus();
+  }
+
+  function closeMobileMenu() {
+    openBtn.setAttribute("aria-expanded", "false");
+    mobileNav.setAttribute("aria-hidden", "true");
+    navLInks.inert = true;
+    openBtn.focus();
+  }
+
+  mobileQuery.addEventListener("change", updateNavState);
+  openBtn.addEventListener("click", openMobileMenu);
+  closeBtn.addEventListener("click", closeMobileMenu);
+</script>
+
+<style>
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  header {
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+  }
+
+  ul {
+    display: flex;
+    gap: 24px;
+  }
+
+  button {
+    display: none;
+  }
+
+  /* coupled with script breakpoint */
+  @media (width < 640px) {
+    button {
+      display: block;
+    }
+    .topnav-menu {
+      background-color: lightgrey;
+      position: fixed;
+      inset: 0;
+      translate: 100vw 0;
+      transition: translate 0.3s ease-in-out;
+    }
+
+    ul {
+      flex-direction: column;
+      align-items: center;
+      padding-block-start: 75px;
+    }
+
+    .topnav-close {
+      margin-inline-start: auto;
+      padding: 8px;
+    }
+
+    .topnav-open[aria-expanded="true"] + .topnav-menu {
+      translate: 0;
+    }
+  }
+</style>
