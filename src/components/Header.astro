@@ -44,9 +44,9 @@
         mobileNav.removeAttribute("style");
       }, 0);
     } else {
-      navLInks.inert = false;
-      closeMobileMenu();
+      openBtn.setAttribute("aria-expanded", "false");
       mobileNav.removeAttribute("aria-hidden");
+      navLInks.inert = false;
     }
   }
 
