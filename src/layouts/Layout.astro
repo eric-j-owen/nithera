@@ -1,5 +1,5 @@
 ---
-import Nav from "../components/Nav.astro";
+import Header from "../components/Header.astro";
 
 interface Props {
   title: string;
@@ -18,7 +18,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Nav />
+    <Header />
     <slot />
   </body>
 </html>
@@ -34,10 +34,11 @@ const { title } = Astro.props;
 
   html,
   body {
-    height: 100%;
-    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    line-height: 1.5;
+    overflow-x: hidden;
   }
 
   input,
@@ -57,8 +58,23 @@ const { title } = Astro.props;
     overflow-wrap: break-word;
   }
 
+  button {
+    background: none;
+    border: none;
+  }
+
   #root,
   #__next {
     isolation: isolate;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul,
+  ol {
+    list-style-type: none;
   }
 </style>
