@@ -1,17 +1,16 @@
 <header>
   <h1><a href="/">NeuroImpact Therapeutics</a></h1>
-  <nav aria-labelledby="nav-label">
-    <span id="nav-label" hidden>Primary navigation</span>
+  <nav>
     <button
       class="topnav-open"
       aria-expanded="false"
-      aria-label="open-menu"
+      aria-label="open menu"
       aria-controls="topnav-menu"
     >
       <img src=`menu-open.svg` alt="" width="28" height="28" />
     </button>
-    <div class="topnav-menu" aria-labelledby="nav-label">
-      <button class="topnav-close" aria-label="close-menu">
+    <div id="topnav-menu" class="topnav-menu">
+      <button class="topnav-close" aria-label="close menu">
         <img src=`menu-close.svg` alt="" width="28" height="28" />
       </button>
       <ul>
@@ -29,7 +28,6 @@
   // coupled with css breakpoint
   const mobileQuery = window.matchMedia("(width < 640px)");
 
-  const main = document.querySelector("main") as HTMLElement;
   const mobileNav = document.querySelector(".topnav-menu") as HTMLDivElement;
   const navLInks = document.querySelector("ul") as HTMLUListElement;
   const openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
@@ -38,6 +36,7 @@
   function updateNavState() {
     if (mobileQuery.matches) {
       navLInks.inert = true;
+      mobileNav.setAttribute("aria-hidden", "true");
 
       //fixes issue of menu popping out when changing screen size
       mobileNav.style.transition = "none";
@@ -47,20 +46,21 @@
     } else {
       navLInks.inert = false;
       closeMobileMenu();
+      mobileNav.removeAttribute("aria-hidden");
     }
   }
 
   function openMobileMenu() {
     openBtn.setAttribute("aria-expanded", "true");
+    mobileNav.setAttribute("aria-hidden", "false");
     navLInks.inert = false;
-    main.inert = true;
     closeBtn.focus();
   }
 
   function closeMobileMenu() {
     openBtn.setAttribute("aria-expanded", "false");
+    mobileNav.setAttribute("aria-hidden", "true");
     navLInks.inert = true;
-    main.inert = false;
     openBtn.focus();
   }
 
