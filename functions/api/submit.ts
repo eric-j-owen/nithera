@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import type { EnvType, FormResponseType } from "../../src/types/types";
+import type { EnvType, FormResponseType } from "../../src/types";
 
 export async function onRequestPost({
   request,
