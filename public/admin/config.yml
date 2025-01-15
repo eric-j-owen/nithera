@@ -5,7 +5,8 @@ backend:
 
 media_folder: public/images
 public_folder: /images
-site_url: "http://localhost:4321/"
+site_url: https://feature-cms-integration.nithera.pages.dev/
+# "http://localhost:4321/"
 
 collections:
   - name: "news" # Used in routes, e.g., /admin/collections/blog
