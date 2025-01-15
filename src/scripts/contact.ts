@@ -1,4 +1,4 @@
-import type { FormResponseType } from "../types/types";
+import type { FormResponseType } from "../types";
 
 const form = document.querySelector("form") as HTMLFormElement;
 const responseMsg = document.querySelector(
