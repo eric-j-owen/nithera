@@ -1,18 +1,11 @@
 import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
-const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
+const branch = process.env.GITHUB_BRANCH || process.env.HEAD || "main";
 
 export default defineConfig({
   branch,
-
-  // Get this from tina.io
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  // Get this from tina.io
   token: process.env.TINA_TOKEN,
 
   build: {
@@ -21,7 +14,7 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "",
+      mediaRoot: "uploads",
       publicFolder: "public",
     },
   },
@@ -30,8 +23,8 @@ export default defineConfig({
     collections: [
       {
         name: "post",
-        label: "Posts",
-        path: "content/posts",
+        label: "News Posts",
+        path: "src/content/news",
         fields: [
           {
             type: "string",
@@ -41,10 +34,45 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "datetime",
+            name: "pubDate",
+            label: "Date Posted",
+            required: true,
+            ui: {
+              dateFormat: "DD MMMM YYYY",
+            },
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Body",
             isBody: true,
+          },
+        ],
+      },
+      {
+        name: "partner",
+        label: "Partners",
+        path: "src/content/partners",
+        fields: [
+          {
+            type: "string",
+            name: "name",
+            label: "Name",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            isBody: true,
+            required: true,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Image",
           },
         ],
       },
