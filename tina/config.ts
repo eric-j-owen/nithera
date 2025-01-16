@@ -4,7 +4,7 @@ import { defineConfig } from "tinacms";
 const branch = process.env.GITHUB_BRANCH || process.env.HEAD || "main";
 
 export default defineConfig({
-  branch,
+  branch: "feature/cms-integration",
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
 
