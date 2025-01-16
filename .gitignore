@@ -23,7 +23,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-*.md
+README.md
 .wrangler
 .dev.vars
 node_modules
