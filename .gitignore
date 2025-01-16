@@ -26,3 +26,4 @@ pnpm-debug.log*
 *.md
 .wrangler
 .dev.vars
+node_modules
