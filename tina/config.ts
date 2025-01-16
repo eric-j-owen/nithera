@@ -1,8 +1,5 @@
 import { defineConfig } from "tinacms";
 
-// Your hosting provider likely exposes this as an environment variable
-const branch = process.env.GITHUB_BRANCH || process.env.HEAD || "main";
-
 export default defineConfig({
   branch: "feature/cms-integration",
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
