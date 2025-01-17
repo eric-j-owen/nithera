@@ -54,21 +54,21 @@ export default defineConfig({
         fields: [
           {
             type: "string",
-            name: "name",
-            label: "Name",
+            name: "orgName",
+            label: "Organization",
             isTitle: true,
             required: true,
           },
           {
             type: "string",
-            name: "description",
+            name: "desc",
             label: "Description",
             isBody: true,
             required: true,
           },
           {
             type: "image",
-            name: "image",
+            name: "imgSrc",
             label: "Image",
           },
         ],

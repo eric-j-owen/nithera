@@ -7,6 +7,14 @@ const news = defineCollection({
   }),
 });
 
+const partners = defineCollection({
+  schema: z.object({
+    orgName: z.string(),
+    imgSrc: z.string(),
+  }),
+});
+
 export const collections = {
   news,
+  partners,
 };
