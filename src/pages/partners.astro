@@ -1,7 +1,25 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import { getCollection, render } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Partner from "../components/Partner.astro";
+
+const partners = await getCollection("partners");
 ---
 
 <Layout title="Partners">
-    <h1>Partners</h1>
+  <h1>Partners</h1>
+  <p>{partners}</p>
+  <ul>
+    {
+      partners.map((partner) => (
+        <li>
+          <Partner
+            name={partner.data.orgName}
+            imgSrc={partner.data.imgSrc}
+            desc={partner.body}
+          />
+        </li>
+      ))
+    }
+  </ul>
 </Layout>

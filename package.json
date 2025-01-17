@@ -3,7 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "prebuild": "tinacms build",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -12,10 +13,13 @@
   },
   "dependencies": {
     "astro": "^5.1.5",
-    "resend": "^4.0.1"
+    "resend": "^4.0.1",
+    "tinacms": "^2.6.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20250109.0",
+    "@tinacms/cli": "^1.8.0",
+    "@types/node": "^22.10.7",
     "concurrently": "^9.1.2"
   }
 }
