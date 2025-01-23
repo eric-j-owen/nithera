@@ -3,5 +3,31 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Home">
-  <h1>Home</h1>
+  <main>
+    <section class="hero">
+      <h1>NeuroImpact <span>Therapeutics</span></h1>
+      <p>Breakthrough Science for a Better Tomorrow.</p>
+    </section>
+    <section class="about-preview">
+      <h2>Where Innovation Meets Patient Care.</h2>
+      <p>
+        At NeuroImpact Therapeutics, we are dedicated to transforming the lives
+        of patients suffering from neurological disorders
+      </p>
+      <a href="/about" class="btn">Learn More About Our Mission</a>
+    </section>
+    <section class="news">
+      <h2>Latest News</h2>
+      <p>Stay informed with our latest updates and announcements.</p>
+      <div class="news-preview"></div>
+      <a href="/news" class="btn">View All News</a>
+    </section>
+
+    <section class="contact-preview">
+      <h2>Have questions or want to get involved? Reach out today.</h2>
+      <a href="/contact">Contact Us</a> or <a href="/partners" class="btn"
+        >See Our Current Partners</a
+      >
+    </section>
+  </main>
 </Layout>

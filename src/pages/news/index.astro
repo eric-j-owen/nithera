@@ -5,12 +5,17 @@ const posts = await getCollection("news");
 ---
 
 <Layout title="News">
-  <h1>news</h1>
+  <h1>News &amp; Updates</h1>
+
+  <p>Stay up to date on the latest updates from NeuroImpact Therapeutics</p>
   <ul>
     {
       posts.map((post) => (
         <li>
-          <a href={`/news/${post.slug}`}>{post.data.title}</a>
+          <a href={`/news/${post.slug}`}>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.pubDate}</p>
+          </a>
         </li>
       ))
     }
