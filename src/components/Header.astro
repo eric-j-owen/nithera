@@ -4,7 +4,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
 ---
 
 <header>
-  <h1><a href="/">[logo]</a></h1>
+  <h1><a href="/">NeuroImpact Therapeutics</a></h1>
   <nav>
     <button
       class="topnav-open"
@@ -31,7 +31,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
 
 <script>
   // coupled with css breakpoint
-  const mobileQuery = window.matchMedia("(width < 640px)");
+  const mobileQuery = window.matchMedia("(width < 1030px)");
 
   const mobileNav = document.querySelector(".topnav-menu") as HTMLDivElement;
   const navLInks = document.querySelector("ul") as HTMLUListElement;
@@ -80,30 +80,43 @@ import MenuClose from "../../public/assets/menu-close.svg";
   }
 
   header {
-    background-color: lightgray;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px;
+    background: transparent;
+  }
+
+  header > h1 {
+    background: linear-gradient(
+      to right,
+      var(--content-gradient-start),
+      var(--content-gradient-end)
+    );
+    background-clip: text;
+    color: transparent;
   }
 
   ul {
     display: flex;
-    gap: 24px;
+    gap: 70px;
+    list-style-type: none;
   }
 
   button {
     display: none;
+    cursor: pointer;
   }
 
   /* coupled with script breakpoint */
-  @media (width < 640px) {
+  @media (width < 1030px) {
     button {
       display: block;
     }
     .topnav-menu {
-      background-color: lightgrey;
+      background-color: var(--bg-gradient-night);
       position: fixed;
+      z-index: 3;
       inset: 0;
       translate: 100vw 0;
       transition: translate 0.3s ease-in-out;

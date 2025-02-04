@@ -1,6 +1,6 @@
 ---
 import Header from "../components/Header.astro";
-
+import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
 }
@@ -18,12 +18,24 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <Header />
-    <slot />
+    <div class="container">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
   </body>
 </html>
 
 <style is:global>
+  :root {
+    --bg-gradient-night: hsla(266, 28%, 5%, 1);
+    --bg-gradient-oxford-blue: hsla(208, 88%, 10%, 1);
+    --content-gradient-start: #21c1e4;
+    --content-gradient-end: #ff6baf;
+  }
+
   *,
   *::before,
   *::after {
@@ -39,6 +51,12 @@ const { title } = Astro.props;
     height: 100%;
     line-height: 1.5;
     overflow-x: hidden;
+    background: linear-gradient(
+      125deg,
+      var(--bg-gradient-night),
+      var(--bg-gradient-oxford-blue)
+    );
+    color: #fff;
   }
 
   input,
@@ -73,8 +91,11 @@ const { title } = Astro.props;
     color: inherit;
   }
 
-  ul,
-  ol {
-    list-style-type: none;
+  .container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    max-width: 1600px;
+    min-height: 100vh;
+    margin: 0 auto;
   }
 </style>
