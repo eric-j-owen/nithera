@@ -1,33 +1,184 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import heroImg from "../assets/homepage-brain.png";
+import bgDesign from "../assets/neural-web.png";
 ---
 
 <Layout title="Home">
   <main>
     <section class="hero">
-      <h1>NeuroImpact <span>Therapeutics</span></h1>
-      <p>Breakthrough Science for a Better Tomorrow.</p>
-    </section>
-    <section class="about-preview">
-      <h2>Where Innovation Meets Patient Care.</h2>
-      <p>
-        At NeuroImpact Therapeutics, we are dedicated to transforming the lives
-        of patients suffering from neurological disorders
-      </p>
-      <a href="/about" class="btn">Learn More About Our Mission</a>
-    </section>
-    <section class="news">
-      <h2>Latest News</h2>
-      <p>Stay informed with our latest updates and announcements.</p>
-      <div class="news-preview"></div>
-      <a href="/news" class="btn">View All News</a>
+      <div class="hero-content">
+        <!-- <p>Breakthrough Science for a Better Tomorrow.</p> -->
+        <h2>
+          Helping Patients Suffering from Neurological Disorders by Developing
+          More Efficacious Drugs
+        </h2>
+        <a href="/about" class="btn btn-primary">Learn More</a>
+      </div>
+      <Image src={heroImg} alt="" class="hero-img" />
     </section>
 
-    <section class="contact-preview">
-      <h2>Have questions or want to get involved? Reach out today.</h2>
-      <a href="/contact">Contact Us</a> or <a href="/partners" class="btn"
-        >See Our Current Partners</a
-      >
+    <section class="about">
+      <div class="about-content">
+        <h2>Where Innovation Meets Patient Care.</h2>
+        <p>
+          At NeuroImpact Therapeutics, we are dedicated to transforming the
+          lives of patients suffering from neurological disorders
+        </p>
+        <a href="/about" class="btn btn-primary">Learn More About Our Mission</a
+        >
+        <Image src={bgDesign} alt="" class="bg-design" />
+      </div>
     </section>
+    <div class="wrapper">
+      <section class="news">
+        <h2>Stay informed with our latest updates and announcements.</h2>
+        <div class="news"></div>
+        <a href="/news" class="btn btn-primary">View All News</a>
+      </section>
+
+      <section class="contact">
+        <h2>Have questions or want to get involved? Reach out today.</h2>
+        <div class="contact-links">
+          <a href="/contact" class="btn btn-primary">Contact Us</a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>
+
+<style>
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-block-end: 100px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  main {
+    padding-inline: 50px;
+  }
+
+  .hero,
+  .about {
+    height: 100vh;
+    max-width: 1600px;
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hero-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 2.5vw, 3rem);
+    max-width: 26ch;
+  }
+
+  p {
+    max-width: 50ch;
+  }
+
+  .hero-content > h2 {
+    margin-block-end: 35px;
+  }
+
+  .btn-primary {
+    position: relative;
+    padding: 15px;
+  }
+
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(
+      to right,
+      var(--content-gradient-start),
+      var(--content-gradient-end)
+    );
+
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* about section */
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bg-design {
+    position: absolute;
+    top: -20%;
+    left: -15%;
+    width: 100%;
+    width: 1100px;
+    height: auto;
+    z-index: -1;
+    /* transform: rotate(90deg); */
+  }
+
+  .about-content > * {
+    margin-block-end: 25px;
+  }
+
+  .contact > *,
+  .news {
+    margin: 30px;
+  }
+
+  @media (max-width: 1030px) {
+    .hero {
+      justify-content: center;
+    }
+
+    .hero-content {
+      margin-block-start: 75px;
+      text-align: center;
+    }
+
+    h2 {
+      max-width: 35ch;
+    }
+
+    .about {
+      align-items: center;
+      margin-block-start: 70px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+
+    .about-content > a {
+      width: fit-content;
+    }
+
+    .bg-design {
+      top: 30%;
+      left: 50;
+    }
+  }
+</style>
