@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import heroImg from "../assets/homepage-brain.png";
-import bgDesign from "../assets/neural-web.png";
+import aboutImg from "../assets/neural-web.png";
 ---
 
 <Layout title="Home">
@@ -16,10 +16,11 @@ import bgDesign from "../assets/neural-web.png";
         </h2>
         <a href="/about" class="btn btn-primary">Learn More</a>
       </div>
-      <Image src={heroImg} alt="" class="hero-img" />
+      <Image src={heroImg} alt="" class="img hero-img" />
     </section>
 
     <section class="about">
+      <Image src={aboutImg} alt="" class="img aboutImg" />
       <div class="about-content">
         <h2>Where Innovation Meets Patient Care.</h2>
         <p>
@@ -28,7 +29,6 @@ import bgDesign from "../assets/neural-web.png";
         </p>
         <a href="/about" class="btn btn-primary">Learn More About Our Mission</a
         >
-        <Image src={bgDesign} alt="" class="bg-design" />
       </div>
     </section>
     <div class="wrapper">
@@ -63,18 +63,15 @@ import bgDesign from "../assets/neural-web.png";
 
   .hero,
   .about {
-    height: 100vh;
-    max-width: 1600px;
-  }
-
-  .hero {
+    /* min-height: 100vh; */
+    margin-block: 300px;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
-  .hero-img {
+  .img {
     width: 100%;
     max-width: 500px;
     height: auto;
@@ -119,24 +116,22 @@ import bgDesign from "../assets/neural-web.png";
 
   /* about section */
   .about {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
     position: relative;
     z-index: 1;
   }
 
-  .bg-design {
+  .aboutImg {
+    max-width: 1000px;
     position: absolute;
-    top: -20%;
     left: -15%;
-    width: 100%;
-    max-width: 1100px;
-    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: -1;
-    /* transform: rotate(90deg); */
   }
 
+  .about-content {
+    margin-left: auto;
+  }
   .about-content > * {
     margin-block-end: 25px;
   }
@@ -149,10 +144,10 @@ import bgDesign from "../assets/neural-web.png";
   @media (max-width: 1030px) {
     .hero {
       justify-content: center;
+      gap: 90px;
     }
 
     .hero-content {
-      margin-block-start: 75px;
       text-align: center;
     }
 
@@ -161,24 +156,22 @@ import bgDesign from "../assets/neural-web.png";
     }
 
     .about {
-      align-items: center;
-      margin-block-start: 70px;
     }
 
     .about-content {
       display: flex;
       flex-direction: column;
+      margin: 0 auto;
       text-align: center;
       align-items: center;
     }
 
-    .about-content > a {
-      width: fit-content;
-    }
-
-    .bg-design {
-      top: 30%;
-      left: 0;
+    .aboutImg {
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      transform: translateX(-50%);
+      min-width: 700px;
     }
   }
 </style>
