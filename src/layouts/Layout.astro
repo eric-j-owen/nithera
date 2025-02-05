@@ -32,8 +32,8 @@ const { title } = Astro.props;
   :root {
     --bg-gradient-night: hsla(266, 28%, 5%, 1);
     --bg-gradient-oxford-blue: hsla(208, 88%, 10%, 1);
-    --content-gradient-start: #21c1e4;
-    --content-gradient-end: #ff6baf;
+    --content-gradient-start: #30c8e1;
+    --content-gradient-end: #ec368d;
   }
 
   *,
@@ -53,7 +53,7 @@ const { title } = Astro.props;
     overflow-x: hidden;
     background: linear-gradient(
       125deg,
-      var(--bg-gradient-night),
+      var(--bg-gradient-night) 35%,
       var(--bg-gradient-oxford-blue)
     );
     color: #fff;
