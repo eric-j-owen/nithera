@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 const posts = await getCollection("news");
+import { formatDate } from "../../utils/formatDate";
 ---
 
 <Layout title="News">
@@ -14,7 +15,7 @@ const posts = await getCollection("news");
         <li>
           <a href={`/news/${post.slug}`}>
             <h2>{post.data.title}</h2>
-            <p>{post.data.pubDate}</p>
+            <p>{formatDate(post.data.pubDate.toISOString())}</p>
           </a>
         </li>
       ))

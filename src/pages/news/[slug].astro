@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { formatDate } from "../../utils/formatDate";
 
 export const getStaticPaths = (async () => {
   const newsPosts = await getCollection("news");
@@ -23,7 +24,7 @@ const { Content } = await render(post);
 <Layout title={post.slug}>
   <main>
     <h1>{post.data.title}</h1>
-    <p>{post.data.pubDate}</p>
+    <p>{formatDate(post.data.pubDate.toISOString())}</p>
     <Content />
   </main>
 </Layout>

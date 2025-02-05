@@ -22,6 +22,11 @@ export default defineConfig({
         name: "post",
         label: "News Posts",
         path: "src/content/news",
+        defaultItem: () => {
+          return {
+            pubDate: new Date().toISOString(),
+          };
+        },
         fields: [
           {
             type: "string",
@@ -35,9 +40,6 @@ export default defineConfig({
             name: "pubDate",
             label: "Date Posted",
             required: true,
-            ui: {
-              dateFormat: "DD MMMM YYYY",
-            },
           },
           {
             type: "rich-text",
