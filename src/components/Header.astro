@@ -4,7 +4,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
 ---
 
 <header>
-  <h1><a href="/">NeuroImpact Therapeutics</a></h1>
+  <a href="/">[logo]</a>
   <nav>
     <button
       class="topnav-open"
@@ -75,10 +75,6 @@ import MenuClose from "../../public/assets/menu-close.svg";
 </script>
 
 <style>
-  h1 {
-    font-size: 1.25rem;
-  }
-
   header {
     display: flex;
     justify-content: space-between;
@@ -87,14 +83,8 @@ import MenuClose from "../../public/assets/menu-close.svg";
     background: transparent;
   }
 
-  header > h1 {
-    background: linear-gradient(
-      to right,
-      var(--content-gradient-start),
-      var(--content-gradient-end)
-    );
-    background-clip: text;
-    color: transparent;
+  header > a {
+    font-size: 1.25rem;
   }
 
   ul {
@@ -114,7 +104,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
       display: block;
     }
     .topnav-menu {
-      background-color: var(--bg-gradient-night);
+      background-color: var(--clr-bg-gradient-night);
       position: fixed;
       z-index: 3;
       inset: 0;

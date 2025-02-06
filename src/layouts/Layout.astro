@@ -30,10 +30,13 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --bg-gradient-night: hsla(266, 28%, 5%, 1);
-    --bg-gradient-oxford-blue: hsla(208, 88%, 10%, 1);
-    --content-gradient-start: #30c8e1;
-    --content-gradient-end: #ec368d;
+    --clr-bg-gradient-night: hsla(266, 28%, 5%, 1);
+    --clr-bg-gradient-oxford-blue: hsla(208, 88%, 10%, 1);
+    --clr-gradient-start: #30c8e1;
+    --clr-gradient-end: #ec368d;
+    --top-margin: 50px;
+    --side-margin: clamp(10px, 5vw, 64px);
+    --btn-radius: 12px;
   }
 
   *,
@@ -53,8 +56,8 @@ const { title } = Astro.props;
     overflow-x: hidden;
     background: linear-gradient(
       125deg,
-      var(--bg-gradient-night) 35%,
-      var(--bg-gradient-oxford-blue)
+      var(--clr-bg-gradient-night) 35%,
+      var(--clr-bg-gradient-oxford-blue)
     );
     color: #fff;
   }
@@ -97,5 +100,54 @@ const { title } = Astro.props;
     max-width: 1600px;
     min-height: 100vh;
     margin: 0 auto;
+  }
+
+  main {
+    margin-block-start: var(--top-margin);
+    margin-inline: var(--side-margin);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 4.5vw, 5rem);
+  }
+
+  h2 {
+    font-size: clamp(1rem, 1.5vw, 2rem);
+  }
+
+  /* buttons */
+
+  .btn {
+    padding: 15px;
+    border-radius: var(--btn-radius);
+    width: fit-content;
+  }
+  .btn-primary {
+    position: relative;
+  }
+
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: var(--btn-radius);
+    background: linear-gradient(
+      to right,
+      var(--clr-gradient-start),
+      var(--clr-gradient-end)
+    );
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .btn-secondary {
+    background-color: #470ff4;
+    border: 2px solid #470ff4;
+    font-size: 0.85rem;
+    padding: 10px;
   }
 </style>

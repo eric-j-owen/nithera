@@ -6,7 +6,8 @@ import aboutImg from "../assets/neural-web.webp";
 ---
 
 <Layout title="Home">
-  <main>
+  <div class="wrapper">
+    <h1>NeuroImpact Therapeutics</h1>
     <section class="hero">
       <div class="hero-content">
         <!-- <p>Breakthrough Science for a Better Tomorrow.</p> -->
@@ -31,7 +32,7 @@ import aboutImg from "../assets/neural-web.webp";
         >
       </div>
     </section>
-    <div class="wrapper">
+    <div class="news-contact-wrapper">
       <section class="news">
         <h2>Stay informed with our latest updates and announcements.</h2>
         <div class="news"></div>
@@ -45,11 +46,11 @@ import aboutImg from "../assets/neural-web.webp";
         </div>
       </section>
     </div>
-  </main>
+  </div>
 </Layout>
 
 <style>
-  .wrapper {
+  .news-contact-wrapper {
     display: flex;
     flex-wrap: wrap;
     margin-block-end: 100px;
@@ -57,13 +58,9 @@ import aboutImg from "../assets/neural-web.webp";
     justify-content: center;
   }
 
-  main {
-    padding-inline: 50px;
-  }
-
   .hero,
   .about {
-    margin: 100px 0 200px 0;
+    margin-block-end: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,9 +72,19 @@ import aboutImg from "../assets/neural-web.webp";
     max-width: 500px;
     height: auto;
   }
-
+  h1 {
+    background: linear-gradient(
+      to right,
+      var(--clr-gradient-start),
+      var(--clr-gradient-end)
+    );
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-block-end: 50px;
+  }
   h2 {
-    font-size: clamp(2rem, 2.5vw, 3rem);
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
     max-width: 26ch;
   }
 
@@ -87,30 +94,6 @@ import aboutImg from "../assets/neural-web.webp";
 
   .hero-content > h2 {
     margin-block-end: 35px;
-  }
-
-  .btn-primary {
-    position: relative;
-    padding: 15px;
-  }
-
-  .btn-primary::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 12px;
-    padding: 2px;
-    background: linear-gradient(
-      to right,
-      var(--content-gradient-start),
-      var(--content-gradient-end)
-    );
-
-    mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
   }
 
   /* about section */
@@ -141,6 +124,9 @@ import aboutImg from "../assets/neural-web.webp";
   }
 
   @media (max-width: 1030px) {
+    main {
+      margin-inline: 0;
+    }
     .hero {
       justify-content: center;
       gap: 90px;
@@ -151,7 +137,7 @@ import aboutImg from "../assets/neural-web.webp";
     }
 
     h2 {
-      max-width: 35ch;
+      max-width: 100%;
     }
     .about {
       margin-block-end: 400px;
@@ -160,7 +146,7 @@ import aboutImg from "../assets/neural-web.webp";
     .about-content {
       display: flex;
       flex-direction: column;
-      margin: 0 auto;
+      margin-inline: auto;
       text-align: center;
       align-items: center;
     }

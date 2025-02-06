@@ -3,22 +3,82 @@ import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 const posts = await getCollection("news");
 import { formatDate } from "../../utils/formatDate";
+
+const PREVIEW_LENGTH = 75;
 ---
 
 <Layout title="News">
-  <h1>News &amp; Updates</h1>
-
-  <p>Stay up to date on the latest updates from NeuroImpact Therapeutics</p>
-  <ul>
+  <section>
+    <div class="header-content">
+      <h1>News &amp; Updates</h1>
+      <h2>
+        Stay up to date on the latest updates from NeuroImpact Therapeutics
+      </h2>
+    </div>
     {
-      posts.map((post) => (
-        <li>
-          <a href={`/news/${post.slug}`}>
-            <h2>{post.data.title}</h2>
-            <p>{formatDate(post.data.pubDate.toISOString())}</p>
-          </a>
-        </li>
-      ))
+      posts.length > 0 ? (
+        <div class="posts">
+          {posts.map((post) => (
+            <article>
+              <h3>{post.data.title}</h3>
+              <p class="date">{formatDate(post.data.pubDate.toISOString())}</p>
+              <p>{post.body.slice(0, PREVIEW_LENGTH)}...</p>
+              <a href={`/news/${post.slug}`} class="btn btn-secondary">
+                Read More
+              </a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p>
+          <em>No updates at this time.</em>
+        </p>
+      )
     }
-  </ul>
+  </section>
 </Layout>
+
+<style>
+  .header-content {
+    width: fit-content;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .header-content > * {
+    margin-block-end: 15px;
+  }
+
+  .posts {
+    display: grid;
+    place-self: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-block-start: 100px;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .date {
+    font-style: italic;
+  }
+
+  @media (max-width: 700px) {
+    .posts {
+      grid-template-columns: 1fr;
+    }
+
+    .posts h3,
+    .date {
+      text-align: center;
+    }
+
+    .btn {
+      margin-inline: auto;
+    }
+  }
+</style>
