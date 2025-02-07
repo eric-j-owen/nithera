@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import aboutImg from "../assets/bg-molecules.webp";
 ---
 
 <Layout title="About">
   <section>
     <div class="header">
-      <img src="src/assets/bg-molecules.png" alt="" />
+      <Image src={aboutImg} alt="" class="img" />
       <h1>About NeuroImpact Therapeutics</h1>
     </div>
     <h2>Transforming Lives Through Targeted Therapeutics</h2>
