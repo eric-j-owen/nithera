@@ -49,6 +49,25 @@ const PREVIEW_LENGTH = 75;
     margin-block-end: 15px;
   }
 
+  h2 {
+    position: relative;
+    font-size: clamp(1rem, 1.5vw, 2rem);
+  }
+  h2::after {
+    content: "";
+    background: linear-gradient(
+      to right,
+      var(--clr-gradient-start),
+      var(--clr-gradient-end)
+    );
+    width: 80%;
+    height: 2px;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .posts {
     display: grid;
     place-self: center;

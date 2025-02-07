@@ -3,64 +3,112 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About">
-  <h1>About NeuroImpact Therapeutics</h1>
+  <section>
+    <div class="header">
+      <h1>About NeuroImpact Therapeutics</h1>
+      <!-- <img src="src/assets/bg-molecules.png" alt="" /> -->
+      <h2>Transforming Lives Through Targeted Therapeutics</h2>
+    </div>
+    <p>
+      At NeuroImpact Therapeutics, we are dedicated to transforming the lives of
+      patients suffering from neurological disorders by pioneering the
+      development of targeted, precision-driven therapeutics.
+    </p>
 
-  <h2>Transforming Lives Through Targeted Therapeutics</h2>
-  <p>
-    At NeuroImpact Therapeutics, we are dedicated to transforming the lives of
-    patients suffering from neurological disorders by pioneering the development
-    of targeted, precision-driven therapeutics.
-  </p>
+    <h2>Advancing Ion Channels Research</h2>
+    <p>
+      By leveraging cutting-edge structural biology and a deep understanding of
+      ion channels and disease-associated proteins, we aim to unlock novel
+      pathways for treating debilitating conditions such as Alzheimer’s and
+      epilepsy.
+    </p>
 
-  <h2>Advancing Ion Channels Research</h2>
-  <p>
-    By leveraging cutting-edge structural biology and a deep understanding of
-    ion channels and disease-associated proteins, we aim to unlock novel
-    pathways for treating debilitating conditions such as Alzheimer’s and
-    epilepsy.
-  </p>
+    <p>
+      Our mission is to bridge innovation and impact, delivering groundbreaking
+      solutions that address unmet medical needs and restore hope to patients
+      and their families.
+    </p>
 
-  <p>
-    Our mission is to bridge innovation and impact, delivering groundbreaking
-    solutions that address unmet medical needs and restore hope to patients and
-    their families.
-  </p>
+    <h2>Our Vision for Neurological Disorder Treatment</h2>
+    <p>
+      Our vision is to revolutionize the treatment of neurological disorders,
+      enabling a future where effective therapeutics improve lives worldwide.
+    </p>
 
-  <h2>Our Vision for Neurological Disorder Treatment</h2>
-  <p>
-    Our vision is to revolutionize the treatment of neurological disorders,
-    enabling a future where effective therapeutics improve lives worldwide.
-  </p>
+    <h2>Core Values</h2>
+    <ul>
+      <li>
+        <strong>Innovation:</strong> Driving breakthroughs in science and medicine.
+      </li>
+      <li>
+        <strong>Collaboration:</strong> Partnering with researchers and institutions
+        to accelerate progress.
+      </li>
+      <li>
+        <strong>Patient-Centric Approach:</strong> Focusing on improving lives and
+        addressing unmet medical needs.
+      </li>
+      <li>
+        <strong>Scientific Excellence:</strong> Leveraging cutting-edge research
+        and expertise.
+      </li>
+    </ul>
 
-  <h2>Core Values</h2>
-  <ul>
-    <li>
-      <strong>Innovation:</strong> Driving breakthroughs in science and medicine.
-    </li>
-    <li>
-      <strong>Collaboration:</strong> Partnering with researchers and institutions
-      to accelerate progress.
-    </li>
-    <li>
-      <strong>Patient-Centric Approach:</strong> Focusing on improving lives and
-      addressing unmet medical needs.
-    </li>
-    <li>
-      <strong>Scientific Excellence:</strong> Leveraging cutting-edge research and
-      expertise.
-    </li>
-  </ul>
+    <h2>Call for Partnership</h2>
+    <p>
+      We welcome collaborations with academic institutions, industry leaders,
+      and investors who share our passion for advancing neurological health.
+    </p>
 
-  <h2>Call for Partnership</h2>
-  <p>
-    We welcome collaborations with academic institutions, industry leaders, and
-    investors who share our passion for advancing neurological health.
-  </p>
+    <h2>Our Commitment</h2>
+    <p>
+      At NeuroImpact Therapeutics, we are committed to making a meaningful
+      impact on the lives of patients, families, and the broader medical
+      community. Together, we can change the future of neurological care.
+    </p>
+  </section>
 
-  <h2>Our Commitment</h2>
-  <p>
-    At NeuroImpact Therapeutics, we are committed to making a meaningful impact
-    on the lives of patients, families, and the broader medical community.
-    Together, we can change the future of neurological care.
-  </p>
+  <style>
+    h1 {
+      text-align: center;
+      position: relative;
+    }
+
+    h1::after {
+      content: "";
+      background: linear-gradient(
+        to right,
+        var(--clr-gradient-start),
+        var(--clr-gradient-end)
+      );
+      width: 80%;
+      height: 2px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 2.5vw, 3rem);
+      margin: 50px 0 20px 0;
+      border-bottom: 2px solid var(--clr-gradient-start);
+      width: fit-content;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+    }
+    ul li {
+      margin-block-end: 10px;
+    }
+    ul li strong {
+      color: var(--clr-gradient-end);
+    }
+  </style>
 </Layout>

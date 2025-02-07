@@ -34,6 +34,7 @@ const { title } = Astro.props;
     --clr-bg-gradient-oxford-blue: hsla(208, 88%, 10%, 1);
     --clr-gradient-start: #30c8e1;
     --clr-gradient-end: #ec368d;
+    --clr-highlight: #470ff4;
     --top-margin: 50px;
     --side-margin: clamp(10px, 5vw, 64px);
     --btn-radius: 12px;
@@ -112,7 +113,7 @@ const { title } = Astro.props;
   }
 
   h2 {
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
   }
 
   /* buttons */
@@ -145,9 +146,11 @@ const { title } = Astro.props;
   }
 
   .btn-secondary {
-    background-color: #470ff4;
-    border: 2px solid #470ff4;
+    /* background-color: var(--clr-highlight); */
+    /* border: 2px solid var(--clr-highlight); */
+    color: var(--clr-gradient-start);
     font-size: 0.85rem;
-    padding: 10px;
+    /* padding: 10px; */
+    padding: 0;
   }
 </style>
