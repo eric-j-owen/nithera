@@ -5,10 +5,10 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="About">
   <section>
     <div class="header">
+      <img src="src/assets/bg-molecules.png" alt="" />
       <h1>About NeuroImpact Therapeutics</h1>
-      <!-- <img src="src/assets/bg-molecules.png" alt="" /> -->
-      <h2>Transforming Lives Through Targeted Therapeutics</h2>
     </div>
+    <h2>Transforming Lives Through Targeted Therapeutics</h2>
     <p>
       At NeuroImpact Therapeutics, we are dedicated to transforming the lives of
       patients suffering from neurological disorders by pioneering the
@@ -69,6 +69,21 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <style>
+    .header {
+      position: relative;
+      overflow: hidden;
+      min-height: 30vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .header img {
+      position: absolute;
+      width: 500px;
+      height: auto;
+    }
+
     h1 {
       text-align: center;
       position: relative;
@@ -91,14 +106,14 @@ import Layout from "../layouts/Layout.astro";
 
     h2 {
       font-size: clamp(1.5rem, 2.5vw, 3rem);
-      margin: 50px 0 20px 0;
+      margin-block-end: 20px;
       border-bottom: 2px solid var(--clr-gradient-start);
       width: fit-content;
     }
 
     p {
       font-size: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 25px;
     }
 
     ul {
