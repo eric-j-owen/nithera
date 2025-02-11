@@ -63,6 +63,13 @@ const { title } = Astro.props;
     color: #fff;
   }
 
+  body {
+    background: url("../assets/bg-molecules-large.webp") no-repeat;
+    background-size: 600px auto;
+    background-position: top left;
+    background-attachment: fixed;
+  }
+
   input,
   button,
   textarea,
@@ -114,7 +121,7 @@ const { title } = Astro.props;
     text-align: center;
   }
   h2 {
-    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    font-size: clamp(1.5rem, 2vw, 1.75rem);
   }
 
   /* buttons */

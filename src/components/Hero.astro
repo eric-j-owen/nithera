@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import heroImg from "../assets/bg-molecules.webp";
+import heroImg from "../assets/bg-molecules-large.webp";
 
 type Props = {
   heading: string;
@@ -11,7 +11,7 @@ const { heading, subHeading } = Astro.props;
 ---
 
 <div>
-  <Image src={heroImg} alt="" />
+  <!-- <Image src={heroImg} alt="" /> -->
   <h1>{heading}</h1>
   {subHeading && <h2>{subHeading}</h2>}
 </div>
