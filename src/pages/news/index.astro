@@ -3,18 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 const posts = await getCollection("news");
 import { formatDate } from "../../utils/formatDate";
+import Hero from "../../components/Hero.astro";
 
 const PREVIEW_LENGTH = 75;
 ---
 
 <Layout title="News">
   <section>
-    <div class="header-content">
-      <h1>News &amp; Updates</h1>
-      <h2>
-        Stay up to date on the latest updates from NeuroImpact Therapeutics
-      </h2>
-    </div>
+    <Hero
+      heading="News & Updates"
+      subHeading="Stay up to date on the latest updates from NeuroImpact Therapeutics"
+    />
+
     {
       posts.length > 0 ? (
         <div class="posts">
@@ -39,33 +39,8 @@ const PREVIEW_LENGTH = 75;
 </Layout>
 
 <style>
-  .header-content {
-    width: fit-content;
-    margin-inline: auto;
-    text-align: center;
-  }
-
-  .header-content > * {
-    margin-block-end: 15px;
-  }
-
   h2 {
-    position: relative;
     font-size: clamp(1rem, 1.5vw, 2rem);
-  }
-  h2::after {
-    content: "";
-    background: linear-gradient(
-      to right,
-      var(--clr-gradient-start),
-      var(--clr-gradient-end)
-    );
-    width: 80%;
-    height: 2px;
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
   }
 
   .posts {
@@ -73,7 +48,6 @@ const PREVIEW_LENGTH = 75;
     place-self: center;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    margin-block-start: 100px;
   }
 
   article {

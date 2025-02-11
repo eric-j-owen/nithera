@@ -1,112 +1,84 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import aboutImg from "../assets/bg-molecules.webp";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout title="About">
+  <Hero
+    heading="About NeuroImpact Therapeutics"
+    subHeading="Breakthrough Science for a Better Tomorrow."
+  />
   <section>
-    <div class="header">
-      <Image src={aboutImg} alt="" class="img" />
-      <h1>About NeuroImpact Therapeutics</h1>
+    <div class="content-section">
+      <h2>Transforming Lives Through Targeted Therapeutics</h2>
+      <p>
+        At NeuroImpact Therapeutics, we are dedicated to transforming the lives
+        of patients suffering from neurological disorders by pioneering the
+        development of targeted, precision-driven therapeutics.
+      </p>
     </div>
-    <h2>Transforming Lives Through Targeted Therapeutics</h2>
-    <p>
-      At NeuroImpact Therapeutics, we are dedicated to transforming the lives of
-      patients suffering from neurological disorders by pioneering the
-      development of targeted, precision-driven therapeutics.
-    </p>
+    <div class="content-section">
+      <h2>Advancing Ion Channels Research</h2>
+      <p>
+        By leveraging cutting-edge structural biology and a deep understanding
+        of ion channels and disease-associated proteins, we aim to unlock novel
+        pathways for treating debilitating conditions such as Alzheimer’s and
+        epilepsy.
+      </p>
+    </div>
+    <div class="content-section">
+      <h2>Our Vision for Neurological Disorder Treatment</h2>
+      <p>
+        Our vision is to revolutionize the treatment of neurological disorders,
+        enabling a future where effective therapeutics improve lives worldwide.
+      </p>
 
-    <h2>Advancing Ion Channels Research</h2>
-    <p>
-      By leveraging cutting-edge structural biology and a deep understanding of
-      ion channels and disease-associated proteins, we aim to unlock novel
-      pathways for treating debilitating conditions such as Alzheimer’s and
-      epilepsy.
-    </p>
+      <p>
+        Our mission is to bridge innovation and impact, delivering
+        groundbreaking solutions that address unmet medical needs and restore
+        hope to patients and their families.
+      </p>
+    </div>
 
-    <p>
-      Our mission is to bridge innovation and impact, delivering groundbreaking
-      solutions that address unmet medical needs and restore hope to patients
-      and their families.
-    </p>
+    <div class="content-section">
+      <h2>Core Values</h2>
+      <ul>
+        <li>
+          <strong>Innovation:</strong> Driving breakthroughs in science and medicine.
+        </li>
+        <li>
+          <strong>Collaboration:</strong> Partnering with researchers and institutions
+          to accelerate progress.
+        </li>
+        <li>
+          <strong>Patient-Centric Approach:</strong> Focusing on improving lives
+          and addressing unmet medical needs.
+        </li>
+        <li>
+          <strong>Scientific Excellence:</strong> Leveraging cutting-edge research
+          and expertise.
+        </li>
+      </ul>
+    </div>
+    <div class="content-section">
+      <h2>Call for Partnership</h2>
+      <p>
+        We welcome collaborations with academic institutions, industry leaders,
+        and investors who share our passion for advancing neurological health.
+      </p>
+    </div>
 
-    <h2>Our Vision for Neurological Disorder Treatment</h2>
-    <p>
-      Our vision is to revolutionize the treatment of neurological disorders,
-      enabling a future where effective therapeutics improve lives worldwide.
-    </p>
-
-    <h2>Core Values</h2>
-    <ul>
-      <li>
-        <strong>Innovation:</strong> Driving breakthroughs in science and medicine.
-      </li>
-      <li>
-        <strong>Collaboration:</strong> Partnering with researchers and institutions
-        to accelerate progress.
-      </li>
-      <li>
-        <strong>Patient-Centric Approach:</strong> Focusing on improving lives and
-        addressing unmet medical needs.
-      </li>
-      <li>
-        <strong>Scientific Excellence:</strong> Leveraging cutting-edge research
-        and expertise.
-      </li>
-    </ul>
-
-    <h2>Call for Partnership</h2>
-    <p>
-      We welcome collaborations with academic institutions, industry leaders,
-      and investors who share our passion for advancing neurological health.
-    </p>
-
-    <h2>Our Commitment</h2>
-    <p>
-      At NeuroImpact Therapeutics, we are committed to making a meaningful
-      impact on the lives of patients, families, and the broader medical
-      community. Together, we can change the future of neurological care.
-    </p>
+    <div class="content-section">
+      <h2>Our Commitment</h2>
+      <p>
+        At NeuroImpact Therapeutics, we are committed to making a meaningful
+        impact on the lives of patients, families, and the broader medical
+        community. Together, we can change the future of neurological care.
+      </p>
+    </div>
   </section>
 
   <style>
-    .header {
-      position: relative;
-      /* overflow: hidden; */
-      min-height: 30vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .header img {
-      position: absolute;
-      width: 500px;
-      height: auto;
-      z-index: 0;
-    }
-
-    h1 {
-      text-align: center;
-      position: relative;
-    }
-
-    h1::after {
-      content: "";
-      background: linear-gradient(
-        to right,
-        var(--clr-gradient-start),
-        var(--clr-gradient-end)
-      );
-      width: 80%;
-      height: 2px;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
     h2 {
       font-size: clamp(1.5rem, 2.5vw, 3rem);
       margin-block-end: 20px;
@@ -129,6 +101,10 @@ import aboutImg from "../assets/bg-molecules.webp";
     }
     ul li strong {
       color: var(--clr-gradient-end);
+    }
+
+    .content-section {
+      margin-block-end: 56px;
     }
   </style>
 </Layout>

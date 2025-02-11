@@ -44,8 +44,7 @@
     <textarea id="msg" name="message" placeholder="Your message here" required
     ></textarea>
   </div>
-
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn-secondary">Submit</button>
   <p id="responseMsg"></p>
 </form>
 
@@ -61,6 +60,11 @@
     max-width: 320px;
   }
 
+  .input {
+    margin-block: 24px;
+    color: inherit;
+  }
+
   label {
     display: block;
   }
@@ -68,7 +72,15 @@
   input,
   textarea {
     width: 100%;
-    margin-block-end: 12px;
-    padding: 5px;
+    padding: 8px;
+    background: transparent;
+    border: none;
+  }
+
+  button {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
   }
 </style>

@@ -1,19 +1,23 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Partner from "../components/Partner.astro";
+import Hero from "../components/Hero.astro";
 
 const partners = await getCollection("partners");
 ---
 
 <Layout title="Partners">
-  <h1>Partners</h1>
+  <Hero
+    heading="Partners"
+    subHeading="We welcome collaborations with academic institutions, industry leaders, and investors who share our passion for advancing neurological health."
+  />
   <ul>
     {
       partners.map((partner) => (
         <li>
           <Partner
-            name={partner.data.orgName}
+            orgName={partner.data.orgName}
             imgSrc={partner.data.imgSrc}
             desc={partner.body}
           />
@@ -22,3 +26,11 @@ const partners = await getCollection("partners");
     }
   </ul>
 </Layout>
+
+<style>
+  ul {
+    list-style: none;
+    display: grid;
+    gap: 64px;
+  }
+</style>

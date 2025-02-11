@@ -1,0 +1,4 @@
+---
+imgSrc: /uploads/tedco.webp
+---
+

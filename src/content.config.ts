@@ -9,8 +9,8 @@ const news = defineCollection({
 
 const partners = defineCollection({
   schema: z.object({
-    orgName: z.string(),
-    imgSrc: z.string(),
+    orgName: z.string().optional(),
+    imgSrc: z.string().optional(),
   }),
 });
 

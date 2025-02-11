@@ -1,16 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ContactForm from "../components/ContactForm.astro";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout title="Contact Us">
-  <main>
-    <h1>Contact Us</h1>
+  <Hero heading="Contact Us" />
+  <div class="contact-container">
     <ContactForm />
-  </main>
+    <div class="contact-information">
+      <div>
+        <h2>Address</h2>
+        <p>North Bethesda, MD 20852</p>
+      </div>
+      <div>
+        <h2>Email</h2>
+        <p>email@email.com</p>
+      </div>
+    </div>
+  </div>
   <script>
     import "../scripts/contact.ts";
   </script>
 </Layout>
 
-<style></style>
+<style>
+  .contact-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .contact-information {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+</style>
