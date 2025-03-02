@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 import scientistImg from "../assets/scientists.webp";
 import brainScanImg from "../assets/brain-scans.webp";
 ---
@@ -28,6 +28,7 @@ import brainScanImg from "../assets/brain-scans.webp";
         </p>
       </div>
     </div>
+
     <div class="img-container">
       <Image src={brainScanImg} alt="brain scans" class="img" />
     </div>
@@ -76,10 +77,14 @@ import brainScanImg from "../assets/brain-scans.webp";
   </section>
 
   <style>
+    .content-section,
+    .img-container {
+      margin-bottom: 250px;
+    }
     section {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 100px;
+      gap: 50px;
     }
 
     .core-values,
