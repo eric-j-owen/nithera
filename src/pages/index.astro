@@ -27,29 +27,37 @@ import aboutImg from "../assets/neural-web.webp";
           At NeuroImpact Therapeutics, we are dedicated to transforming the
           lives of patients suffering from neurological disorders
         </p>
-        <a href="/about" class="btn btn-primary">Learn More About Our Mission</a
+
+        <a href="/research" class="btn btn-primary research-btn">Our Research</a
         >
+        <a href="/vision" class="btn btn-primary">Our Mission</a>
       </div>
     </section>
-    <div class="news-contact-wrapper">
-      <section class="news">
-        <h3>Stay informed with our latest updates and announcements.</h3>
-        <div class="news"></div>
-        <a href="/news" class="btn btn-primary">View All News</a>
-      </section>
+  </div>
+  <div class="news-contact-wrapper">
+    <section class="news">
+      <h3>Stay informed with our latest updates and announcements.</h3>
+      <div class="news"></div>
+      <a href="/news" class="btn btn-primary">View All News</a>
+    </section>
 
-      <section class="contact">
-        <h3>Have questions or want to get involved? Reach out today.</h3>
-        <div class="contact-links">
-          <a href="/contact" class="btn btn-primary">Contact Us</a>
-        </div>
-      </section>
-    </div>
+    <section class="contact">
+      <h3>Have questions or want to get involved? Reach out today.</h3>
+      <div class="contact-links">
+        <a href="/contact" class="btn btn-primary">Contact Us</a>
+      </div>
+    </section>
   </div>
 </Layout>
 
 <style>
-  a {
+  .research-btn {
+    background-color: var(--clr-light);
+    color: var(--clr-bg-gradient-night);
+
+    margin-right: 24px;
+  }
+  .about a {
     display: inline-block;
   }
   h1 {
@@ -118,6 +126,7 @@ import aboutImg from "../assets/neural-web.webp";
     top: 50%;
     transform: translateY(-50%);
     z-index: -1;
+    opacity: 70%;
   }
 
   .about-content {
