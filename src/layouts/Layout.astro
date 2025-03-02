@@ -14,6 +14,12 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -32,10 +38,12 @@ const { title } = Astro.props;
   :root {
     --clr-bg-gradient-night: hsla(266, 28%, 5%, 1);
     --clr-bg-gradient-oxford-blue: hsla(208, 88%, 10%, 1);
-    --clr-gradient-start: #00bbbd;
-    --clr-gradient-end: #d70dd7;
-    --clr-highlight: #470ff4;
-    --top-margin: 50px;
+    --clr-lightest: #d0d7e1;
+    --clr-light: #9ccddb;
+    --clr-med: #5790ab;
+    --clr-dark: #064489;
+    --clr-darkest: #072d44;
+    --top-margin: 120px;
     --side-margin: clamp(10px, 5vw, 64px);
     --btn-radius: 12px;
   }
@@ -64,8 +72,10 @@ const { title } = Astro.props;
   }
 
   body {
-    background: url("../assets/bg-molecules-large.webp") no-repeat;
-    background-size: 500px auto;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    background: url("../assets/bg-molecules-large.webp") no-repeat !important;
+    background-size: 500px auto !important;
     background-position: top left;
   }
 
@@ -118,9 +128,12 @@ const { title } = Astro.props;
   h1 {
     font-size: clamp(2.5rem, 4.25vw, 4rem);
     text-align: center;
+    font-weight: 600;
   }
   h2 {
     font-size: clamp(1.5rem, 2vw, 1.75rem);
+    font-weight: 500;
+    /* color: var(--clr-light); */
   }
 
   /* buttons */
@@ -130,31 +143,14 @@ const { title } = Astro.props;
     border-radius: var(--btn-radius);
     width: fit-content;
   }
-  .btn-primary {
-    position: relative;
-  }
 
-  .btn-primary::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 2px;
-    border-radius: var(--btn-radius);
-    background: linear-gradient(
-      to right,
-      var(--clr-gradient-start),
-      var(--clr-gradient-end)
-    );
-    mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
+  .btn-primary {
+    /* border: 2px solid var(--clr-darkest); */
+    background-color: var(--clr-darkest);
   }
 
   .btn-secondary {
-    color: var(--clr-gradient-start);
-    font-size: 0.85rem;
+    color: var(--clr-light);
     padding: 0;
   }
 </style>

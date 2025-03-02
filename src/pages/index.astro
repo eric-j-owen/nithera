@@ -10,10 +10,9 @@ import aboutImg from "../assets/neural-web.webp";
     <h1>NeuroImpact Therapeutics</h1>
     <section class="hero">
       <div class="hero-content">
-        <!-- <p>Breakthrough Science for a Better Tomorrow.</p> -->
         <h2>
-          Helping Patients Suffering from Neurological Disorders by Developing
-          More Efficacious Drugs
+          <span>Helping Patients</span> Suffering from Neurological Disorders by
+          Developing More Efficacious Drugs
         </h2>
         <a href="/about" class="btn btn-primary">Learn More</a>
       </div>
@@ -23,7 +22,7 @@ import aboutImg from "../assets/neural-web.webp";
     <section class="about">
       <Image src={aboutImg} alt="" class="img aboutImg" />
       <div class="about-content">
-        <h2>Where Innovation Meets Patient Care.</h2>
+        <h2>Where <span>Innovation</span> Meets Patient Care.</h2>
         <p>
           At NeuroImpact Therapeutics, we are dedicated to transforming the
           lives of patients suffering from neurological disorders
@@ -50,8 +49,14 @@ import aboutImg from "../assets/neural-web.webp";
 </Layout>
 
 <style>
+  a {
+    display: inline-block;
+  }
   h1 {
     margin-inline: auto;
+    color: var(--clr-lightest);
+    text-align: center;
+    margin-block-end: 50px;
   }
   h1::after {
     display: none;
@@ -79,23 +84,17 @@ import aboutImg from "../assets/neural-web.webp";
     max-width: 500px;
     height: auto;
   }
-  h1 {
-    background: linear-gradient(
-      to right,
-      var(--clr-gradient-start) 30%,
-      var(--clr-gradient-end)
-    );
-    background-clip: text;
-    color: transparent;
-    text-align: center;
-    margin-block-end: 50px;
-  }
+
   h2,
   h3 {
     max-width: 26ch;
   }
+
   h2 {
     font-size: clamp(1.5rem, 2.5vw, 3rem);
+  }
+  H2 > span {
+    color: var(--clr-light);
   }
 
   p {

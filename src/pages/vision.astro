@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Image from "astro/components/Image.astro";
+import scientistImg from "../assets/scientists.webp";
+import brainScanImg from "../assets/brain-scans.webp";
+---
+
+<Layout title="Vision">
+  <Hero
+    heading="Our Vision and Core Values"
+    subHeading="Where Innovation Meets Patient Care."
+  />
+  <section>
+    <div class="content-section vision">
+      <div class="vision-content">
+        <h2>Our Vision for Neurological Disorder Treatment</h2>
+        <p>
+          Our vision is to revolutionize the treatment of neurological
+          disorders, enabling a future where effective therapeutics improve
+          lives worldwide.
+        </p>
+
+        <p>
+          Our mission is to bridge innovation and impact, delivering
+          groundbreaking solutions that address unmet medical needs and restore
+          hope to patients and their families.
+        </p>
+      </div>
+    </div>
+    <div class="img-container">
+      <Image src={brainScanImg} alt="brain scans" class="img" />
+    </div>
+
+    <div class="img-container">
+      <Image src={scientistImg} alt="Scientists at work" class="img" />
+    </div>
+    <div class="content-section core-values">
+      <div>
+        <h2>Core Values</h2>
+        <ul>
+          <li>
+            <strong>Innovation:</strong> Driving breakthroughs in science and medicine.
+          </li>
+          <li>
+            <strong>Collaboration:</strong> Partnering with researchers and institutions
+            to accelerate progress.
+          </li>
+          <li>
+            <strong>Patient-Centric Approach:</strong> Focusing on improving lives
+            and addressing unmet medical needs.
+          </li>
+          <li>
+            <strong>Scientific Excellence:</strong> Leveraging cutting-edge research
+            and expertise.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="content-section end">
+      <h2>Call for Partnership</h2>
+      <p>
+        We welcome collaborations with academic institutions, industry leaders,
+        and investors who share our passion for advancing neurological health.
+      </p>
+    </div>
+
+    <div class="content-section end">
+      <h2>Our Commitment</h2>
+      <p>
+        At NeuroImpact Therapeutics, we are committed to making a meaningful
+        impact on the lives of patients, families, and the broader medical
+        community. Together, we can change the future of neurological care.
+      </p>
+    </div>
+  </section>
+
+  <style>
+    section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+    }
+
+    .core-values,
+    .vision {
+      display: flex;
+      align-items: center;
+    }
+
+    h2 {
+      margin-block-end: 20px;
+      border-bottom: 1px solid var(--clr-lightest);
+      width: fit-content;
+      position: relative;
+      z-index: 1;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .img-container {
+      max-width: 500px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    ul {
+      list-style: none;
+    }
+    ul li {
+      margin-block-end: 10px;
+    }
+    ul li strong {
+      color: var(--clr-light);
+    }
+
+    p {
+      max-width: 75ch;
+    }
+
+    .end-content {
+      display: flex;
+      grid-column: 1 / -1;
+      max-width: 90ch;
+      place-self: center;
+    }
+
+    @media (max-width: 1030px) {
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 100px;
+        align-items: center;
+      }
+
+      .img-container:nth-of-type(3) {
+        order: 1;
+      }
+      .end {
+        order: 2;
+      }
+    }
+  </style>
+</Layout>

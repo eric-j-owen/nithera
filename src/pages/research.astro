@@ -1,0 +1,77 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import Image from "astro/components/Image.astro";
+import kcnqImg from "../assets/kcnqimgedit.webp";
+---
+
+<Layout title="Research">
+  <Hero
+    heading="Our Research"
+    subHeading="Breakthrough Science for a Better Tomorrow."
+  />
+  <section>
+    <div class="cnt-wrapper">
+      <div class="content-section">
+        <h2>Transforming Lives Through Targeted Therapeutics</h2>
+        <p>
+          At NeuroImpact Therapeutics, we are dedicated to transforming the
+          lives of patients suffering from neurological disorders by pioneering
+          the development of targeted, precision-driven therapeutics.
+        </p>
+      </div>
+      <div class="content-section">
+        <h2>Advancing Ion Channels Research</h2>
+        <p>
+          By leveraging cutting-edge structural biology and a deep understanding
+          of ion channels and disease-associated proteins, we aim to unlock
+          novel pathways for treating debilitating conditions such as
+          Alzheimer’s and epilepsy.
+        </p>
+      </div>
+    </div>
+    <div class="img-container">
+      <Image src={kcnqImg} alt="" class="img" />
+    </div>
+  </section>
+
+  <style>
+    section {
+      display: flex;
+      align-items: center;
+    }
+    h2 {
+      margin-block-end: 20px;
+      border-bottom: 1px solid var(--clr-light);
+      width: fit-content;
+      position: relative;
+      z-index: 1;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    .content-section {
+      margin-block-end: 56px;
+      max-width: 75ch;
+    }
+
+    .img-container {
+      max-width: 800px;
+      flex-shrink: 2;
+    }
+
+    .img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (width < 1030px) {
+      section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</Layout>
