@@ -70,12 +70,29 @@ import MenuClose from "../../public/assets/menu-close.svg";
     openBtn.focus();
   }
 
+  function highlightActive() {
+    const currentUrl = window.location.pathname;
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    navLinks.forEach((link) => {
+      if (link.getAttribute("href") === currentUrl) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
   mobileQuery.addEventListener("change", updateNavState);
   openBtn.addEventListener("click", openMobileMenu);
   closeBtn.addEventListener("click", closeMobileMenu);
+  highlightActive();
 </script>
 
 <style>
+  .active {
+    color: var(--clr-light);
+  }
   header {
     display: flex;
     justify-content: space-between;
