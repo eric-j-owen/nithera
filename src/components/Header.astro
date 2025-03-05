@@ -75,7 +75,9 @@ import MenuClose from "../../public/assets/menu-close.svg";
     const navLinks = document.querySelectorAll("nav ul li a");
 
     navLinks.forEach((link) => {
-      if (link.getAttribute("href") === currentUrl) {
+      //need trailing slash currently, check production url when site is transferred
+      const currentLink = link.getAttribute("href") + "/";
+      if (currentLink === currentUrl) {
         link.classList.add("active");
       } else {
         link.classList.remove("active");
