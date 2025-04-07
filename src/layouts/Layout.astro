@@ -137,6 +137,7 @@ const defaultDescription =
   }
 
   a {
+    display: inline-block;
     text-decoration: none;
     color: inherit;
   }
@@ -172,15 +173,19 @@ const defaultDescription =
     padding: 15px;
     border-radius: var(--btn-radius);
     width: fit-content;
-    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
   }
 
-  .btn:hover {
+  
+
+  a, button{
+    transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+  }
+  a:hover, button:hover {
     transform: scale(1.05);
     opacity: .8;
   }
 
-  .btn:active {
+  a:active, button:active{
     transform: scale(.95);
   }
 
