@@ -12,6 +12,7 @@
     "wrangler:dev": "concurrently \"npm run build\" \"npm run wrangler\""
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.3.0",
     "astro": "^5.1.5",
     "resend": "^4.0.1",
     "tinacms": "^2.6.0"
