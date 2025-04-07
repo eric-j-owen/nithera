@@ -36,8 +36,8 @@ import MenuClose from "../../public/assets/menu-close.svg";
 
   const mobileNav = document.querySelector(".topnav-menu") as HTMLDivElement;
   const navLInks = document.querySelector("ul") as HTMLUListElement;
-  const openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
-  const closeBtn = document.querySelector(".topnav-close") as HTMLButtonElement;
+  let closeBtn = document.querySelector(".topnav-close") as HTMLButtonElement;
+  let openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
 
   function updateNavState() {
     if (mobileQuery.matches) {
@@ -45,10 +45,10 @@ import MenuClose from "../../public/assets/menu-close.svg";
       mobileNav.setAttribute("aria-hidden", "true");
 
       //fixes issue of menu popping out when changing screen size
-      mobileNav.style.transition = "none";
-      setTimeout(() => {
-        mobileNav.removeAttribute("style");
-      }, 0);
+      // mobileNav.style.transition = "none";
+      // setTimeout(() => {
+      //   mobileNav.removeAttribute("style");
+      // }, 0);
     } else {
       openBtn.setAttribute("aria-expanded", "false");
       mobileNav.removeAttribute("aria-hidden");
@@ -87,13 +87,21 @@ import MenuClose from "../../public/assets/menu-close.svg";
     });
   }
 
-  mobileQuery.addEventListener("change", updateNavState);
-  openBtn.addEventListener("click", openMobileMenu);
-  closeBtn.addEventListener("click", closeMobileMenu);
+
+  function initializeHeader() {
+    openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
+    closeBtn = document.querySelector(".topnav-close") as HTMLButtonElement;
+    openBtn.addEventListener("click", openMobileMenu);
+    closeBtn.addEventListener("click", closeMobileMenu);
+    highlightActive();
+    updateNavState();
+  }
 
   document.addEventListener("astro:page-load", () => {
-    highlightActive();
-  })
+    initializeHeader();
+  });
+
+  mobileQuery.addEventListener("change", updateNavState);
 </script>
 
 <style>
