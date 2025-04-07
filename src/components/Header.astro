@@ -75,11 +75,8 @@ import MenuClose from "../../public/assets/menu-close.svg";
     const navLinks = document.querySelectorAll("nav ul li a");
 
     navLinks.forEach((link) => {
-      //need trailing slash currently, check production url when site is transferred
       let currentLink = link.getAttribute("href");
-      if (currentLink !== "/") {
-        currentLink = currentLink + "/";
-      }
+   
       if (currentLink === currentUrl) {
         link.classList.add("active");
       } else {
@@ -91,7 +88,10 @@ import MenuClose from "../../public/assets/menu-close.svg";
   mobileQuery.addEventListener("change", updateNavState);
   openBtn.addEventListener("click", openMobileMenu);
   closeBtn.addEventListener("click", closeMobileMenu);
-  highlightActive();
+
+  document.addEventListener("astro:page-load", () => {
+    highlightActive();
+  })
 </script>
 
 <style>
