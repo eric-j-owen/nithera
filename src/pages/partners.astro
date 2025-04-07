@@ -15,11 +15,12 @@ const partners = await getCollection("partners");
   <ul>
     {
       partners.map((partner) => (
+        
         <li>
           <Partner
             orgName={partner.data.orgName}
             imgSrc={partner.data.imgSrc}
-            desc={partner.body}
+            desc={partner.data.desc}
           />
         </li>
       ))

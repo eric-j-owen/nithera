@@ -22,9 +22,47 @@ const { Content } = await render(post);
 ---
 
 <Layout title={post.slug}>
-  <main>
-    <h1>{post.data.title}</h1>
-    <p>{formatDate(post.data.pubDate.toISOString())}</p>
-    <Content />
-  </main>
+  <div class="article-container">
+    <header>
+      <h1>{post.data.title}</h1>
+      <p class="date">{formatDate(post.data.pubDate.toISOString())}</p>
+    </header>
+    <article>
+      <Content />
+    </article>
+  </div>
 </Layout>
+
+<style>
+  .article-container {
+    max-width: 800px;
+    margin-inline: auto;
+  }
+
+  .article-header {
+    margin-block-end: 2rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-block-end: 100px;
+  }
+
+  .date {
+    font-style: italic;
+    color: lightgray; 
+    margin-block-end: 24px;
+    text-align: end;
+  }
+
+
+  :global(article p) {
+    margin-bottom: 25px;
+  }
+
+  :global(article ul) {
+    padding-inline-start: 50px; 
+  }
+  
+</style>
