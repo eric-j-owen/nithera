@@ -5,9 +5,16 @@ const responseMsg = document.querySelector(
   "#responseMsg"
 ) as HTMLParagraphElement;
 
+const submitButton = document.querySelector(
+  "button[type='submit']"
+) as HTMLButtonElement;
+const buttonText = submitButton.textContent || "Submit";
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting...";
   responseMsg.textContent = "";
 
   const data = new FormData(form);
@@ -29,5 +36,8 @@ form.addEventListener("submit", async (e) => {
   } catch (err) {
     console.error(err);
     responseMsg.textContent = "An error occurred during submission.";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = buttonText;
   }
 });
