@@ -76,7 +76,9 @@ import MenuClose from "../../public/assets/menu-close.svg";
 
     navLinks.forEach((link) => {
       let currentLink = link.getAttribute("href");
-   
+      if (currentLink !== "/") {
+        currentLink = currentLink + "/";
+      }
       if (currentLink === currentUrl) {
         link.classList.add("active");
       } else {
