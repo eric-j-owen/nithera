@@ -73,13 +73,15 @@ export async function onRequestPost({
       cc: [],
       bcc: [],
       tags: [],
-      to: ["ejowen+github@proton.me"],
+      to: ["info@neuroimpacttx.com"],
       from: "onboarding@resend.dev",
       subject: "New contact form submission",
-      html: `<p>Name: ${fullName}</p>
-             <p>Email: ${email}</p>
-             <p>Phone: ${phoneNumber}</p>
-             <p>Message: ${message}</p>`,
+      html: `
+      <h1>Do not reply to this email. Below is the contact form submission details.</h1>
+      <p>Name: ${fullName}</p>
+      <p>Email: ${email}</p>
+      <p>Phone: ${phoneNumber}</p>
+      <p>Message: ${message}</p>`,
     });
 
     return createResponse("Form submitted successfully!", 200);
