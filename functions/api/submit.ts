@@ -74,7 +74,7 @@ export async function onRequestPost({
       bcc: [],
       tags: [],
       to: ["info@neuroimpacttx.com"],
-      from: "onboarding@resend.dev",
+      from: "noreply@send.neuroimpacttx.com",
       subject: "New contact form submission",
       html: `
       <h1>Do not reply to this email. Below is the contact form submission details.</h1>
