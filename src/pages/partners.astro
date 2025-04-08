@@ -12,26 +12,40 @@ const partners = await getCollection("partners");
     heading="Partners"
     subHeading="We welcome collaborations with academic institutions, industry leaders, and investors who share our passion for advancing neurological health."
   />
-  <ul>
-    {
-      partners.map((partner) => (
-        
-        <li>
+    <ul>
+      {
+        partners.map((partner) => (
+          
+          <li>
           <Partner
             orgName={partner.data.orgName}
             imgSrc={partner.data.imgSrc}
             desc={partner.data.desc}
-          />
+            />
         </li>
       ))
     }
-  </ul>
+    </ul>
 </Layout>
 
 <style>
-  ul {
+   ul {
     list-style: none;
     display: grid;
     gap: 64px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 2rem;
+    place-items: center;
+    text-align: center;
   }
+
+  @media (max-width: 1030px) {
+    ul {
+      grid-template-columns: 1fr;
+      max-width: 75ch;
+      margin-inline: auto;
+    }
+  }
+
+  
 </style>

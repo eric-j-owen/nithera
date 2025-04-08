@@ -9,17 +9,22 @@ const { orgName, imgSrc, desc } = Astro.props;
 ---
 
 <div class="partner">
-  <img src={imgSrc} alt="" width="150px" />
-  <div>
+  <div class="img">
+    <img src={imgSrc} alt="" width="150px" />
+  </div>
+  <div class="content">
     <h2>{orgName || "title"}</h2>
     <p>{desc || "description"}</p>
   </div>
 </div>
 
 <style>
+
   .partner {
     display: flex;
-    gap: 24px;
-    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 2rem;
   }
+
 </style>

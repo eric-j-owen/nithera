@@ -1,6 +1,7 @@
 ---
 import MenuOpen from "../../public/assets/menu-open.svg";
 import MenuClose from "../../public/assets/menu-close.svg";
+
 ---
 
 <header>
@@ -33,7 +34,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
 
 <script>
   // coupled with css breakpoint
-  const mobileQuery = window.matchMedia("(width < 1030px)");
+  const mobileQuery = window.matchMedia("(width < 1100px)");
 
 
   function selectElements() {
@@ -53,7 +54,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
   }
   
   function updateNavState() {
-    const { mobileNav, navLInks, openBtn } = selectElements();
+    const { mobileNav, navLInks, openBtn, overlay } = selectElements();
 
     if (mobileQuery.matches) {
       navLInks.inert = true;
@@ -61,8 +62,10 @@ import MenuClose from "../../public/assets/menu-close.svg";
 
       //fixes issue of menu popping out when changing screen size
       mobileNav.style.transition = "none";
+      overlay.style.transition = "none";
       setTimeout(() => {
         mobileNav.removeAttribute("style");
+        overlay.removeAttribute("style");
       }, 0);
     } else {
       openBtn.setAttribute("aria-expanded", "false");
@@ -159,7 +162,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
   }
 
   /* coupled with script breakpoint */
-  @media (width < 1030px) {
+  @media (width < 1100px) {
     button {
       display: block;
     }
@@ -194,7 +197,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
       margin: 25px 50px 0 0;
       padding-right: 25px;
       gap: 25px;
-      border-right: 2px solid white;
+      border-right: 2px solid grey;
     }
 
     .topnav-close {
