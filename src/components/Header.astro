@@ -27,6 +27,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
         <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
+    <div class="nav-overlay"></div>
   </nav>
 </header>
 
@@ -40,11 +41,14 @@ import MenuClose from "../../public/assets/menu-close.svg";
     const mobileNav = document.querySelector(".topnav-menu") as HTMLDivElement;
     const closeBtn = document.querySelector(".topnav-close") as HTMLButtonElement;
     const openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
+    const overlay = document.querySelector(".nav-overlay") as HTMLDivElement;
+
     return {
       navLInks,
       mobileNav,
       closeBtn,
-      openBtn
+      openBtn,
+      overlay
     }
   }
   
@@ -104,10 +108,12 @@ import MenuClose from "../../public/assets/menu-close.svg";
 
 
   function initializeHeader() {
-    const { openBtn, closeBtn } = selectElements();
+    const { openBtn, closeBtn, overlay } = selectElements();
 
     openBtn.addEventListener("click", openMobileMenu);
     closeBtn.addEventListener("click", closeMobileMenu);
+    overlay.addEventListener("click", closeMobileMenu);
+
     highlightActive();
     updateNavState();
   }
@@ -161,15 +167,34 @@ import MenuClose from "../../public/assets/menu-close.svg";
       background-color: var(--clr-bg-gradient-night);
       position: fixed;
       z-index: 3;
-      inset: 0;
+      inset: 0 0 0 50%;
       translate: 100vw 0;
       transition: translate 0.3s ease-in-out;
     }
 
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      pointer-events: none;
+    }
+    
+    .topnav-open[aria-expanded="true"] ~ .nav-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+
     ul {
       flex-direction: column;
-      align-items: center;
-      padding-block-start: 75px;
+      align-items: end;
+      margin: 25px 50px 0 0;
+      padding-right: 25px;
+      gap: 25px;
+      border-right: 2px solid white;
     }
 
     .topnav-close {
@@ -179,6 +204,12 @@ import MenuClose from "../../public/assets/menu-close.svg";
 
     .topnav-open[aria-expanded="true"] + .topnav-menu {
       translate: 0;
+    }
+  }
+
+  @media (width < 500px) {
+    .topnav-menu {
+      inset: 0;
     }
   }
 </style>
