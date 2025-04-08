@@ -34,21 +34,32 @@ import MenuClose from "../../public/assets/menu-close.svg";
   // coupled with css breakpoint
   const mobileQuery = window.matchMedia("(width < 1030px)");
 
-  const mobileNav = document.querySelector(".topnav-menu") as HTMLDivElement;
-  const navLInks = document.querySelector("ul") as HTMLUListElement;
-  let closeBtn = document.querySelector(".topnav-close") as HTMLButtonElement;
-  let openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
 
+  function selectElements() {
+    const navLInks = document.querySelector("ul") as HTMLUListElement;
+    const mobileNav = document.querySelector(".topnav-menu") as HTMLDivElement;
+    const closeBtn = document.querySelector(".topnav-close") as HTMLButtonElement;
+    const openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
+    return {
+      navLInks,
+      mobileNav,
+      closeBtn,
+      openBtn
+    }
+  }
+  
   function updateNavState() {
+    const { mobileNav, navLInks, openBtn } = selectElements();
+
     if (mobileQuery.matches) {
       navLInks.inert = true;
       mobileNav.setAttribute("aria-hidden", "true");
 
       //fixes issue of menu popping out when changing screen size
-      // mobileNav.style.transition = "none";
-      // setTimeout(() => {
-      //   mobileNav.removeAttribute("style");
-      // }, 0);
+      mobileNav.style.transition = "none";
+      setTimeout(() => {
+        mobileNav.removeAttribute("style");
+      }, 0);
     } else {
       openBtn.setAttribute("aria-expanded", "false");
       mobileNav.removeAttribute("aria-hidden");
@@ -57,6 +68,8 @@ import MenuClose from "../../public/assets/menu-close.svg";
   }
 
   function openMobileMenu() {
+    const { mobileNav, navLInks, openBtn, closeBtn } = selectElements();
+
     openBtn.setAttribute("aria-expanded", "true");
     mobileNav.setAttribute("aria-hidden", "false");
     navLInks.inert = false;
@@ -64,6 +77,8 @@ import MenuClose from "../../public/assets/menu-close.svg";
   }
 
   function closeMobileMenu() {
+    const { mobileNav, navLInks, openBtn } = selectElements();
+
     openBtn.setAttribute("aria-expanded", "false");
     mobileNav.setAttribute("aria-hidden", "true");
     navLInks.inert = true;
@@ -89,8 +104,8 @@ import MenuClose from "../../public/assets/menu-close.svg";
 
 
   function initializeHeader() {
-    openBtn = document.querySelector(".topnav-open") as HTMLButtonElement;
-    closeBtn = document.querySelector(".topnav-close") as HTMLButtonElement;
+    const { openBtn, closeBtn } = selectElements();
+
     openBtn.addEventListener("click", openMobileMenu);
     closeBtn.addEventListener("click", closeMobileMenu);
     highlightActive();

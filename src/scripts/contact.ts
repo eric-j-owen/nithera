@@ -34,7 +34,6 @@ form.addEventListener("submit", async (e) => {
       responseMsg.textContent = result.message + ": " + result.errors;
     }
   } catch (err) {
-    console.error(err);
     responseMsg.textContent = "An error occurred during submission.";
   } finally {
     submitButton.disabled = false;

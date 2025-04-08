@@ -86,7 +86,6 @@ export async function onRequestPost({
 
     return createResponse("Form submitted successfully!", 200);
   } catch (err) {
-    console.error("Error:", err);
-    return createResponse("Error parsing JSON content", 400);
+    return createResponse("An error occurred", 500);
   }
 }
