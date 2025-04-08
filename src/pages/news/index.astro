@@ -5,10 +5,14 @@ const posts = await getCollection("news");
 import { formatDate } from "../../utils/formatDate";
 import Hero from "../../components/Hero.astro";
 
+const title = "News & Updates | NeuroImpact Therapeutics";
+const description = "Stay informed about the latest developments, research breakthroughs, and company announcements from NeuroImpact Therapeutics.";
+
+
 const PREVIEW_LENGTH = 75;
 ---
 
-<Layout title="News">
+<Layout title={title} description={description}>
   <section>
     <Hero
       heading="News & Updates"

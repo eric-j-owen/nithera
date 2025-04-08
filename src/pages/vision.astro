@@ -4,9 +4,12 @@ import Hero from "../components/Hero.astro";
 import { Image } from "astro:assets";
 import scientistImg from "../assets/scientists.webp";
 import brainScanImg from "../assets/brain-scans.webp";
+
+const title = "Our Vision and Core Values | NeuroImpact Therapeutics";
+const description = "Learn about NeuroImpact Therapeutics' mission to revolutionize neurological treatments through innovation, collaboration, and patient-centric approaches.";
 ---
 
-<Layout title="Vision">
+<Layout title={title} description={description}>
   <Hero
     heading="Our Vision and Core Values"
     subHeading="Where Innovation Meets Patient Care."

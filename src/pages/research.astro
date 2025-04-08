@@ -3,9 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import { Image } from "astro:assets";
 import kcnqImg from "../assets/kcnqimgedit.webp";
+
+const title = "Neurological Research & Innovation | NeuroImpact Therapeutics";
+const description = "Explore our groundbreaking research on ion channels, KCNQ and neurological disorders. We're developing targeted therapeutics for conditions like epilepsy and Alzheimer's disease.";
 ---
 
-<Layout title="Research">
+<Layout title={title} description={description}>
   <Hero
     heading="Our Research"
     subHeading="Breakthrough Science for a Better Tomorrow."

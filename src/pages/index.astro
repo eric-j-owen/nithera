@@ -3,9 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import heroImg from "../assets/homepage-brain.webp";
 import aboutImg from "../assets/neural-web.webp";
+
+const title = "NeuroImpact Therapeutics | Innovative Neurological Treatments";
+const description = "NeuroImpact Therapeutics develops targeted therapeutics for neurological disorders, focusing on ion channels research to improve patient outcomes and quality of life.";
 ---
 
-<Layout title="Home">
+<Layout title={title} description={description}>
   <div class="wrapper">
     <h1>NeuroImpact Therapeutics</h1>
     <section class="hero">

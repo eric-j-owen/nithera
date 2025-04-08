@@ -2,9 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import ContactForm from "../components/ContactForm.astro";
 import Hero from "../components/Hero.astro";
+
+const title = "Contact NeuroImpact Therapeutics";
+const description = "Reach out to NeuroImpact Therapeutics for information about our neurological research, potential collaborations, or other inquiries. We welcome your message.";
 ---
 
-<Layout title="Contact Us">
+<Layout title={title} description={description}>
   <Hero
     heading="Contact Us"
     subHeading="For further information regarding our research initiatives and ongoing projects, please consider reaching out."
