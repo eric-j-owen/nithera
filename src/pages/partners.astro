@@ -7,7 +7,10 @@ import Hero from "../components/Hero.astro";
 const partners = await getCollection("partners");
 ---
 
-<Layout title="Partners">
+<Layout 
+  title="Our Strategic Partners | NeuroImpact Therapeutics" 
+  description="Discover the organizations and institutions partnering with NeuroImpact Therapeutics to advance neurological health research and treatments."
+>
   <Hero
     heading="Partners"
     subHeading="We welcome collaborations with academic institutions, industry leaders, and investors who share our passion for advancing neurological health."
@@ -26,9 +29,19 @@ const partners = await getCollection("partners");
       ))
     }
     </ul>
+
+    <div class="partner-contact">
+      <h2>Interested in Partnering With Us?</h2>
+      <a href="/contact" class="btn btn-primary">Contact Us</a>
+    </div>
 </Layout>
 
 <style>
+  .partner-contact {  
+    max-width: 800px;
+    margin: 75px auto ;
+    text-align: center;
+  }
    ul {
     list-style: none;
     display: grid;
