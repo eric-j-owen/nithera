@@ -28,18 +28,18 @@ const defaultDescription =
     <link 
       rel="preload" 
       as="style" 
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=fallback" 
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" 
     />
     <link 
       rel="stylesheet" 
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=fallback" 
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" 
       media="print" 
       onload="this.media='all'" 
     />
     <noscript>
       <link 
         rel="stylesheet" 
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=fallback" 
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" 
       />
     </noscript>
     <meta name="generator" content={Astro.generator} />
@@ -73,14 +73,46 @@ const defaultDescription =
       />
     )}
     <style is:inline>
-      .hero-content h2 {
-        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-        max-width: 26ch;
-        margin-block-end: 35px;
-      }
-      .hero-content h2 span {
-        color: var(--clr-light);
-      }
+       :root {
+    --clr-light: #9ccddb;
+  }
+  h1 {
+    font-size: clamp(3rem, 4.25vw, 4rem);
+    text-align: center;
+    font-weight: 600;
+    margin-block-end: 150px;
+  }
+  .hero {
+    margin-block-end: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hero-content h2 {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    max-width: 26ch;
+    margin-block-end: 35px;
+  }
+  .hero-content h2 span {
+    color: var(--clr-light);
+  }
+  .btn {
+    display: inline-block;
+    padding: 15px;
+    border-radius: 12px;
+    width: fit-content;
+  }
+  .btn-primary {
+    background-color: transparent;
+    border: 2px solid var(--clr-light);
+  }
+  .research-btn {
+    background-color: var(--clr-light);
+    color: hsla(266, 28%, 5%, 1);
+    font-weight: bold;
+    margin-left: 24px;
+  }
     </style>
   </head>
   <body>
