@@ -21,11 +21,21 @@ const description = "NeuroImpact Therapeutics develops targeted therapeutics for
         <a href="/research" class="btn btn-primary research-btn">Our Research</a
         >
       </div>
-      <Image src={heroImg} alt="Digital visualization of neural pathways in the brain" class="img hero-img" width={500} height={443}/>
+      <Image src={heroImg} alt="Digital visualization of neural pathways in the brain" 
+          class="img hero-img" 
+          width={500} 
+          height={443}
+          loading="eager"
+          decoding="sync"  
+          />
     </section>
 
     <section class="about">
-      <Image src={aboutImg} alt="Neural network visualization showing connected neurons" class="img aboutImg" width={500} height={443} />
+      <Image src={aboutImg} 
+          alt="Neural network visualization showing connected neurons" 
+          class="img aboutImg" 
+          width={1000} 
+          height={667} />
       <div class="about-content">
         <h2>Where <span>Innovation</span> Meets Patient Care.</h2>
         <p>
