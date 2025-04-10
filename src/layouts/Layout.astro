@@ -25,10 +25,23 @@ const defaultDescription =
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
+    <link 
+      rel="preload" 
+      as="style" 
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=fallback" 
     />
+    <link 
+      rel="stylesheet" 
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=fallback" 
+      media="print" 
+      onload="this.media='all'" 
+    />
+    <noscript>
+      <link 
+        rel="stylesheet" 
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=fallback" 
+      />
+    </noscript>
     <meta name="generator" content={Astro.generator} />
     <ClientRouter />
     <SEO 
@@ -51,6 +64,16 @@ const defaultDescription =
       
       />
     <title>{title}</title>
+    <style is:inline>
+      .hero-content h2 {
+        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+        max-width: 26ch;
+        margin-block-end: 35px;
+      }
+      .hero-content h2 span {
+        color: var(--clr-light);
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -101,7 +124,7 @@ const defaultDescription =
   }
 
   body {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-weight: 400;
     background: url("../assets/bg-molecules-large.webp") no-repeat !important;
     background-size: 500px auto !important;

@@ -54,10 +54,11 @@ import MenuClose from "../../public/assets/menu-close.svg";
   }
   
   function updateNavState() {
-    const { mobileNav, navLInks, openBtn, overlay } = selectElements();
+    const { mobileNav, navLInks, openBtn, closeBtn, overlay } = selectElements();
 
     if (mobileQuery.matches) {
       navLInks.inert = true;
+      closeBtn.inert = true;
       mobileNav.setAttribute("aria-hidden", "true");
 
       //fixes issue of menu popping out when changing screen size
@@ -71,6 +72,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
       openBtn.setAttribute("aria-expanded", "false");
       mobileNav.removeAttribute("aria-hidden");
       navLInks.inert = false;
+      closeBtn.inert = false;
     }
   }
 
@@ -80,15 +82,17 @@ import MenuClose from "../../public/assets/menu-close.svg";
     openBtn.setAttribute("aria-expanded", "true");
     mobileNav.setAttribute("aria-hidden", "false");
     navLInks.inert = false;
+    closeBtn.inert = false;
     closeBtn.focus();
   }
 
   function closeMobileMenu() {
-    const { mobileNav, navLInks, openBtn } = selectElements();
+    const { mobileNav, navLInks, openBtn, closeBtn } = selectElements();
 
     openBtn.setAttribute("aria-expanded", "false");
     mobileNav.setAttribute("aria-hidden", "true");
     navLInks.inert = true;
+    closeBtn.inert = true;
     openBtn.focus();
   }
 
