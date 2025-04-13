@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+
+const title = "Page Not Found | NeuroImpact Therapeutics";
+---
+
+<Layout title={title}>
+  <Hero
+    heading="Page Not Found"
+    subHeading="The page you requested does not exist."
+  />
+  <section>
+    <div class="content-section">
+      <p>Sorry, we couldn't find what you were looking for. Please check the URL or navigate back to our <a href="/">homepage</a>.</p>
+    </div>
+  </section>
+
+  <style>
+    .content-section {
+      margin-block: 24px;
+      max-width: 75ch;
+      text-align: center;
+      margin: 0 auto;
+    }
+  </style>
+</Layout>
