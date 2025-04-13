@@ -11,12 +11,12 @@ const description = "Explore our groundbreaking research on ion channels, KCNQ a
 <Layout title={title} description={description}>
   <Hero
     heading="Our Research"
-    subHeading="Breakthrough Science for a Better Tomorrow."
+    subHeading="Advancing Ion Channels Research for a Better Tomorrow."
   />
   <section>
     <div class="cnt-wrapper">
       <div class="content-section">
-        <h2>Advancing Ion Channels Research</h2>
+        <h3>Ion Channels: The Foundation of Our Research</h3>
         <p>
           Ion channels are specialized proteins located within the membranes of nerve cells (neurons), 
           playing crucial roles in controlling the flow of ions such as potassium, sodium, calcium, and 
@@ -32,6 +32,7 @@ const description = "Explore our groundbreaking research on ion channels, KCNQ a
         </p>
       </div>
       <div class="content-section">
+        <h3>KCNQ Potassium Channels: Our Primary Focus</h3>
         <p>
           With an emphasis on the KCNQ family of potassium channels, known for their 
           pivotal roles in neuronal stability and excitability, our research leverages 
@@ -45,7 +46,7 @@ const description = "Explore our groundbreaking research on ion channels, KCNQ a
         </p>
       </div>
       <div class="img-container">
-        <Image src={kcnqImg} alt="Visualization showing KCNQ gene" class="img" width={500} height={443}/>
+        <Image src={kcnqImg} alt="Molecular structure of KCNQ potassium ion channels showing binding sites" class="img" width={500} height={443}/>
       </div>
     </div>
   </section>
@@ -80,7 +81,7 @@ const description = "Explore our groundbreaking research on ion channels, KCNQ a
       flex-shrink: 2;
     }
 
-    h2 {
+    h3 {
       margin-block-end: 20px;
       border-bottom: 1px solid var(--clr-light);
       width: fit-content;
