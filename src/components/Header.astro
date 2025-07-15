@@ -3,10 +3,9 @@ import MenuOpen from "../../public/assets/menu-open.svg";
 import MenuClose from "../../public/assets/menu-close.svg";
 
 ---
-
 <header>
   <a href="/">
-      <img src="/assets/logos/nb-light-none.png" alt="home logo" style="height: auto; width: clamp(100px, 15vw, 200px)">
+      <img src="/assets/logos/test.png" alt="home logo">
   </a>
   <!-- <strong>neuro<span style="color: var(--clr-light);">impact</span></strong> -->
   <nav>
@@ -34,7 +33,6 @@ import MenuClose from "../../public/assets/menu-close.svg";
     <div class="nav-overlay"></div>
   </nav>
 </header>
-
 <script>
   // coupled with css breakpoint
   const mobileQuery = window.matchMedia("(width < 1100px)");
@@ -139,17 +137,33 @@ import MenuClose from "../../public/assets/menu-close.svg";
   .active {
     color: var(--clr-light);
   }
+
+
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px;
-    background: transparent;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
   }
 
-  header > a {
-    font-size: 1.25rem;
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+  header > a > img {
+    width: clamp(150px, 10vw, 200px);
+    height: auto; 
+    /* border: 2px solid red; */
   }
+
 
   ul {
     display: flex;
@@ -173,6 +187,7 @@ import MenuClose from "../../public/assets/menu-close.svg";
     button {
       display: block;
     }
+
     .topnav-menu {
       background-color: var(--clr-bg-gradient-night);
       position: fixed;
