@@ -10,7 +10,8 @@ const description = "NeuroImpact Therapeutics develops targeted therapeutics for
 
 <Layout title={title} description={description}>
   <div class="wrapper">
-    <h1>NeuroImpact Therapeutics</h1>
+    <!-- <h1>NeuroImpact Therapeutics</h1> -->
+     <img src="/public/assets/logos/nb-light-full.png" alt="Neuroimpact Therapeutics hero image and company name">
     <section class="hero">
       <div class="hero-content">
         <h2>
@@ -63,6 +64,15 @@ const description = "NeuroImpact Therapeutics develops targeted therapeutics for
 </Layout>
 
 <style>
+
+  .wrapper > img {
+    display: block;
+    margin-inline: auto;
+    margin-block: clamp(-200px, -15vw, -100px) min(100px);
+    /* border: 2px solid red; */
+    width: clamp(300px, 80vw, 1200px);
+    height: auto;
+  }
   .research-btn {
     background-color: var(--clr-light);
     color: var(--clr-bg-gradient-night);

@@ -27,3 +27,7 @@ README.md
 .wrangler
 .dev.vars
 node_modules
+
+
+
+src/assets/unused
